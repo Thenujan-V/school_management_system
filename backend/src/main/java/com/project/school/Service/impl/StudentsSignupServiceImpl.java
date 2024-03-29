@@ -1,16 +1,17 @@
 package com.project.school.Service.impl;
 
+import com.project.school.Dto.StudentSigninDto;
 import com.project.school.Dto.StudentSignup;
 import com.project.school.Entity.StudentsEntity;
 import com.project.school.Repository.StudentsRepo;
-import com.project.school.Service.interfaces.StudentsService;
+import com.project.school.Service.interfaces.StudentsSignupService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class StudentsServiceImpl implements StudentsService {
+public class StudentsSignupServiceImpl implements StudentsSignupService {
     @Autowired
     private StudentsRepo studentsRepo;
     @Override
