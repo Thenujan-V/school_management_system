@@ -1,6 +1,7 @@
 package com.project.school.Controller.Students;
 
 import com.project.school.Service.interfaces.Students.ViewSubjectsService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
@@ -9,6 +10,7 @@ import java.util.Collections;
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/api/v1/student")
 public class ViewSubjectsController {
     @Autowired

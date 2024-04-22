@@ -1,7 +1,7 @@
 package com.project.school.Controller.Admin;
 
-import com.project.school.Dto.Admin.AddSubjectDto;
-import com.project.school.Service.interfaces.Admin.AddSubjectService;
+import com.project.school.Dto.Admin.ExamDto;
+import com.project.school.Service.interfaces.Admin.AddExamDateService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,14 +10,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequiredArgsConstructor
 @RequestMapping("/api/v1/admin")
-public class AddSubjects {
+@RequiredArgsConstructor
+public class AddExamDateController {
     @Autowired
-    private AddSubjectService addSubjectService;
-
-    @PostMapping("/addsubject")
-    private String addsubjects(@RequestBody AddSubjectDto addSubjectDto){
-        return addSubjectService.addsubject(addSubjectDto);
+    private AddExamDateService addExamDateService;
+    @PostMapping("/addexamdate")
+    private String addDate(@RequestBody ExamDto examDto){
+        return addExamDateService.addExamDate(examDto);
     }
 }
