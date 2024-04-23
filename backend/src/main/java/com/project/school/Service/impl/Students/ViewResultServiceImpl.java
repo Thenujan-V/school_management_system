@@ -14,7 +14,8 @@ public class ViewResultServiceImpl implements ViewResultService {
     @Autowired
     private ResultRepo resultRepo;
     @Override
-    public List<Object> viewResult(String indexNo) {
-        return resultRepo.getResult(indexNo);
+    public List<Object> viewResult(String indexNo, String term) {
+        System.out.println("nooo");
+        return resultRepo.getResult(indexNo, term);
     }
 }

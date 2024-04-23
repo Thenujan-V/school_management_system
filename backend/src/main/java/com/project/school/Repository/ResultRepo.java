@@ -11,6 +11,8 @@ import java.util.List;
 
 @Repository
 public interface ResultRepo extends JpaRepository<ResultEntity, CompositeId> {
-    @Query("select r.id.exam_id, r.marks from ResultEntity r join StudentsEntity s on r.id.student_id = s.student_id where s.index_number = :indexNo")
-    List<Object> getResult(@Param("indexNo") String indexNo);
+    @Query("select c.subject_name, r.marks from ResultEntity r join StudentsEntity s on r.id.student_id = s.student_id " +
+            "join ExamEntity e on e.exam_id = r.id.exam_id  " + "join SubjectEntity c on c.subject_id = e.subject_id " +
+            "where s.index_number = :indexNo and c.term = :term")
+    List<Object> getResult(@Param("indexNo") String indexNo, @Param("term") String term);
 }

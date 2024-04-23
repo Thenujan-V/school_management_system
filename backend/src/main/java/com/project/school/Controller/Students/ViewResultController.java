@@ -18,8 +18,8 @@ public class ViewResultController {
     @Autowired
     private ViewResultService viewResultService;
 
-    @GetMapping("/viewresult/{indexno}")
-    private List<Object> viewExamResult(@PathVariable ("indexno") String indexNo){
-        return viewResultService.viewResult(indexNo);
+    @GetMapping("/viewresult/{indexno}/{term}")
+    private List<Object> viewExamResult(@PathVariable ("indexno") String indexNo, @PathVariable ("term") String term){
+        return viewResultService.viewResult(indexNo, term);
     }
 }
