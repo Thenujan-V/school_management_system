@@ -24,7 +24,6 @@ public class AddSubjectImpl implements AddSubjectService {
         subjectEntity.setTerm(addSubjectDto.getTerm());
 
         try {
-            System.out.println("sub :"+addSubjectDto.getSubject_name());
             subjectRepo.save(subjectEntity);
             return "Subject added successfully";
         }
