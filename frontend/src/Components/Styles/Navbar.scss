@@ -1,0 +1,23 @@
+#navbar{
+    margin: 0;
+    padding: 0;
+    height: 70px;
+    background-color: var(--blue) !important;
+    font-family: "Libre Baskerville", serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+    
+    #navbarNavDropdown{
+        justify-content: center;
+        text-align: center;
+
+        .nav-link{
+        color: var(--white) !important;
+        padding: 25px;
+    }
+    .dropdown-menu{
+        // background-color: var(--blue);
+    }
+    }
+    
+}
