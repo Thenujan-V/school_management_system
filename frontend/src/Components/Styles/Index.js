@@ -5,5 +5,6 @@ import homeAbout from './HomeAbout.scss'
 import noticeBoard from './NoticeBoard.scss'
 import homeNews from './HomeNews.scss'
 import map from './Map.scss'
+import signin from './Signin.scss'
 
-export {navbar, global, homeIndex, homeAbout, noticeBoard, homeNews, map}
+export {navbar, global, homeIndex, homeAbout, noticeBoard, homeNews, map, signin}

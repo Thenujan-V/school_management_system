@@ -5,6 +5,7 @@ import HomeAbout from '../Components/HomeAbout'
 import NoticeBoard from '../Components/NoticeBoard'
 import HomeNews from '../Components/HomeNews'
 import Map from '../Components/Map'
+import Signin from '../Components/Signin'
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
         <HomeIndex />
         <HomeAbout />
         <NoticeBoard />
+        <Signin />
         <HomeNews />
         <Map />
     </>

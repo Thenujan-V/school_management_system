@@ -1,0 +1,91 @@
+.signin-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    background-color: var(--blue);
+}
+
+.signin-form {
+    font-family: "Libre Baskerville", serif;
+    background-color: var(--opacityWhite);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 50vw;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.signin-form h2 {
+    margin-bottom: 1rem;
+    font-size: 45px;
+    color: var(--yellow);
+    font-style: italic;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.form-group {
+    width: 25vw;
+    margin-bottom: 1rem;
+    text-align: left;
+    height: 5vw;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    
+}
+
+input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input.error {
+    border-color: red;
+}
+
+.error-text {
+    color: red;
+    font-size: 0.875rem;
+}
+
+.forgot-password-link {
+    display: block;
+    margin-bottom: 1rem;
+    color: var(--blue);
+    text-decoration: none;
+    font-size: 0.875rem;
+}
+
+.forgot-password-link:hover {
+    text-decoration: underline;
+}
+
+.login-button {
+    padding: 0.5rem;
+    background-color: var(--yellow);
+    color: var(--blue);
+    border: none;
+    border-radius: 4px;
+    width: 15vw;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.login-button:hover {
+    background-color: #0056b3;
+}
