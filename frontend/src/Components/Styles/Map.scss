@@ -1,0 +1,23 @@
+.map{
+    background-color: var(--blue);
+    padding-bottom:30px;
+    h1{
+        font-family: "Libre Baskerville", serif;
+        color: var(--yellow);
+        font-style: italic;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        text-align: center;
+        padding-top: 20px;
+    }
+    .frame iframe{
+        border: 2px solid #000; 
+        width: 80%;         
+        height: 600px;        
+        border-radius: 10px;    
+        margin: 10px auto;      
+        display: block;
+        box-shadow: 3px 0px 15px rgb(166, 154, 154);
+    }
+}

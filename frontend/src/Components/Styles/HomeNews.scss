@@ -1,0 +1,122 @@
+// Colors
+$color-primary-white: rgb(240, 240, 240);
+#head{
+        margin: 15px;
+        font-family: "Libre Baskerville", serif;
+        color: var(--yellow);
+        font-style: italic;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-align: center;
+        text-transform: uppercase;
+  }
+#homeNews {
+  display: flex;
+  flex-direction: row;
+  gap:50px;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 20px 20px 20px;
+  font-family: 'Roboto', sans-serif;
+
+  .card {
+    // width: 24rem;
+    // height: 30rem;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  color: var(--blue);
+  box-shadow: 0 10px 30px 5px rgba(0, 0, 0, 0.2);
+
+  img {
+    
+    // position: absolute;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.9;
+    transition: opacity .2s ease-out;
+  }
+
+  h2 {
+    position: absolute;
+    inset: auto auto 30px 30px;
+    margin: 0;
+    transition: inset .3s .3s ease-out;
+    font-family: "Libre Baskerville", serif;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow:4px 4px 15px black;
+    text-transform: uppercase;
+  }
+  h3{
+    position: absolute;
+    inset: 0px 0px auto auto    ;
+    padding:10px;
+    background-color: var(--blue );
+    color: var(--yellow);
+    text-align: end;
+    margin: 0;
+    transition: inset .3s .3s ease-out;
+    font-family: "Libre Baskerville", serif;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    box-shadow:4px 4px 15px black;
+    text-transform: uppercase;
+  }
+  
+  p, .btn {
+    position: absolute;
+    opacity: 0;
+    max-width: 80%;
+    transition: opacity .3s ease-out;
+    box-shadow:4px 4px 15px black;
+  }
+  
+  p {
+    background-color: var(--yellow);
+    inset: auto auto 80px 30px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: italic;
+    font-size: 16px;
+    box-shadow:4px 4px 15px black;
+    font-weight: 500;
+  }
+  
+  .btn {
+    inset: auto auto 40px 30px;
+    color: inherit;
+    text-decoration: none;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: var(--blue);
+    color: var(--yellow);
+  }
+  
+  &:hover h2 {
+    inset: auto auto 220px 30px;
+    transition: inset .3s ease-out;
+  }
+  
+  &:hover p, &:hover .btn {
+    opacity: 1;
+    transition: opacity .5s .1s ease-in;
+  }
+  
+  &:hover img {
+    transition: opacity .3s ease-in;
+    opacity: 1;
+  }
+
+}
+}
+
+.material-symbols-outlined {
+  vertical-align: middle;
+}

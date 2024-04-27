@@ -1,0 +1,49 @@
+#carousel{
+    margin: 0;
+    padding: 0;
+
+    .carousel-inner{
+        height: 80vh;
+        margin-top: -10px;
+    }
+}
+#educates{
+    background-color: var(--blue);
+    display: flex;
+    gap: 60px;
+    justify-content: center;
+    align-items: center;
+    height: 93px;
+
+    div{
+        width: 200px;
+        height: 50px;
+        // background-color: var(--yellow);
+        text-align: center;
+        padding-top: 10px;
+        border-radius: 10px;
+        font-family: "Libre Baskerville", serif;
+        font-size: 18px;
+        color: black;
+
+        #link{
+            text-decoration: none;
+            font-style: italic;
+            font-weight: bold;
+            color: var(--yellow);
+        }
+    }
+    #download, #exam{
+        border: 2px solid var(--white);
+    }
+
+    #result{
+        background-color: var(--yellow);
+
+        #link{
+            color: black;
+        }
+    }
+    
+    
+}
