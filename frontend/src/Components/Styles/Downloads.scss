@@ -1,0 +1,50 @@
+#downloads{
+    background-color: var(--blue);
+    border-radius: 60px;
+    margin-top: 35px;
+    h1{
+        font-family: "Libre Baskerville", serif;
+        color: var(--yellow);
+        font-style: italic;
+        font-weight: bold;
+        text-align: center;
+        text-transform: uppercase;
+        padding-top: 30px;
+    }
+    .grades{
+        margin-top: 40px;   
+        justify-content: center;
+        
+        .grade{
+            width: 15vw;
+            height: 30vh;
+            margin: 20px;
+            border: 3px solid var(--orange);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--yellow);
+            transition: .9s;
+            text-decoration: none;  
+
+
+            #FontAwesomeIcon{
+                font-size: 60px;
+            }
+            p{
+                margin-top: 30px;
+                font-size: 26px;
+                font-style: italic;
+                font-weight: bold;
+            }
+        }
+        .grade:hover{
+            background-color: var(--orange);
+            color: var(--yellow);
+            transform:scale(1.1);
+        }
+
+    }
+}

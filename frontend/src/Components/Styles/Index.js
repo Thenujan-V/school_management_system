@@ -6,5 +6,8 @@ import noticeBoard from './NoticeBoard.scss'
 import homeNews from './HomeNews.scss'
 import map from './Map.scss'
 import signin from './Signin.scss'
+import downloads from './Downloads.scss'
+import result from './Result.scss'
+import resultTable from './ResultTable.scss'
 
-export {navbar, global, homeIndex, homeAbout, noticeBoard, homeNews, map, signin}
+export {navbar, global, homeIndex, homeAbout, noticeBoard, homeNews, map, signin, downloads, result, resultTable}
