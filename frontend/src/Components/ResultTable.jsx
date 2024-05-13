@@ -6,7 +6,13 @@ const ResultTable = () => {
         {'student_name' : 'student 1', 'index_no' : 'A200012', 'grade':'6', 'term':'2', 'maths' : '90', 'science' : '89', 'tamil' : '90', 'english' : '95'}
     ]
     const [apiResult,setApiResult] = useState('')
-    
+    const [totalMarks, setTotalMarks] = useState('')
+
+    useEffect(() => {
+        const total = Number(results[0].maths) + Number(results[0].science) + Number(results[0].tamil) + Number(results[0].english)
+        setTotalMarks(total)
+    })
+    const avgMarks = totalMarks/10
   return (
     <div className='results'>
         <div className="details">
@@ -49,6 +55,11 @@ const ResultTable = () => {
                     </tr>
                 </tbody>
             </table>
+        </div>
+        <div className='average'>
+            <p>TOTAL MARKS : {totalMarks}</p>
+            <p>AVERAGE MARKS : {avgMarks}</p>
+            <p></p>
         </div>
     </div>
   )

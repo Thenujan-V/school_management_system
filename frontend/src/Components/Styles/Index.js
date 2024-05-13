@@ -9,5 +9,6 @@ import signin from './Signin.scss'
 import downloads from './Downloads.scss'
 import result from './Result.scss'
 import resultTable from './ResultTable.scss'
+import history from './history.scss'
 
-export {navbar, global, homeIndex, homeAbout, noticeBoard, homeNews, map, signin, downloads, result, resultTable}
+export {navbar, global, homeIndex, homeAbout, noticeBoard, homeNews, map, signin, downloads, result, resultTable, history}
