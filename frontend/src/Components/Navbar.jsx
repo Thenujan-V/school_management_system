@@ -21,7 +21,7 @@ const Navbar = () => {
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <li><Link class="dropdown-item" to="/abouthistorybody">History</Link></li>
-                    <li><Link class="dropdown-item" href="#">Rules&Regutations</Link></li>
+                    <li><Link class="dropdown-item" to='/rules'>Rules&Regutations</Link></li>
                     <li><Link class="dropdown-item" href="#">Identity</Link></li>
                 </ul>
                 </li>
@@ -30,9 +30,9 @@ const Navbar = () => {
                     STAFFS
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <li><Link class="dropdown-item" href="#">Principle</Link></li>
-                    <li><Link class="dropdown-item" href="#">Deputy Principles</Link></li>
-                    <li><Link class="dropdown-item" href="#">Teachers</Link></li>
+                    <li><Link class="dropdown-item" to='/principal'>Principle</Link></li>
+                    <li><Link class="dropdown-item" to='/deputyprincipal'>Deputy Principles</Link></li>
+                    <li><Link class="dropdown-item" to='/teacher'>Teachers</Link></li>
                 </ul>
                 </li>
                 <li class="nav-item">

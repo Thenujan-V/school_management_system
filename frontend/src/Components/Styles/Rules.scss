@@ -1,0 +1,38 @@
+.rulesFirst{
+    background: linear-gradient(rgba(38, 36, 36, 0.8), rgba(45, 32, 32, 0.7)), url('../Assets/rules.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    background-size: cover;
+    height: 35vh;
+    margin-top: -10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p{
+        color: var(--yellow);
+        font-size: 40px;
+        font-family: "Libre Baskerville", serif;
+        font-weight: bold;
+        letter-spacing: 6px;
+        padding: 10px;
+        box-shadow: 4px 4px 10px black;
+    }
+}
+.rules{
+    padding: 100px;
+
+    .rule{
+        p{
+            font-size: 20px;
+            margin-bottom: 30px;
+
+            .FontAwesomeIcon{
+                margin-right: 20px;
+            }
+        }
+    }
+    .rule:nth-child(odd){
+        background-color: rgb(222, 216, 216);
+    }
+}

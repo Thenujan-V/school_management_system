@@ -7,6 +7,10 @@ import HistoryPage from './Pages/HistoryPage'
 import AboutBody from './Components/AboutBody'
 import AboutFounder from './Components/AboutFounder'
 import AboutPrincipals from './Components/AboutPrincipals'
+import Rules from './Pages/Rules'
+import Principal from './Components/Principal'
+import DeputyPrincipal from './Components/DeputyPrincipal'
+import Teachers from './Components/Teachers'
 
 const App = () => {
   return (
@@ -19,6 +23,10 @@ const App = () => {
         <Route path='/abouthistorybody' element={<AboutBody />}/>
         <Route path='/aboutfounder' element={<AboutFounder />}/>
         <Route path='/aboutprincipals' element={<AboutPrincipals />}/>
+        <Route path='/rules' element={<Rules />}/>
+        <Route path='/principal' element={<Principal />}/>
+        <Route path='/deputyprincipal' element={<DeputyPrincipal />}/>
+        <Route path='/teachers' element={<Teachers />}/>
 
         
       </Routes>

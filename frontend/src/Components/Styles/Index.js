@@ -10,5 +10,7 @@ import downloads from './Downloads.scss'
 import result from './Result.scss'
 import resultTable from './ResultTable.scss'
 import history from './history.scss'
+import rules from './Rules.scss'
+import principal from './Principal.scss'
 
-export {navbar, global, homeIndex, homeAbout, noticeBoard, homeNews, map, signin, downloads, result, resultTable, history}
+export {navbar, global, homeIndex, homeAbout, noticeBoard, homeNews, map, signin, downloads, result, resultTable, history, rules, principal}

@@ -6,7 +6,8 @@ import history from './history.jpeg'
 import oldSchool from './oldschool.jpeg'
 import founder from './founder.jpeg'
 import bari from './Bari_Sir.jpeg'
+import rules from './rules.png'
 
 
 
-export {student, child, school, principle, history, oldSchool, founder, bari}
+export {student, child, school, principle, history, oldSchool, founder, bari, rules}
