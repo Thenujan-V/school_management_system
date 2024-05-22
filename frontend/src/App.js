@@ -11,6 +11,8 @@ import Rules from './Pages/Rules'
 import Principal from './Components/Principal'
 import DeputyPrincipal from './Components/DeputyPrincipal'
 import Teachers from './Components/Teachers'
+import Contact from './Pages/Contact'
+import { News } from './Pages/News'
 
 const App = () => {
   return (
@@ -27,6 +29,8 @@ const App = () => {
         <Route path='/principal' element={<Principal />}/>
         <Route path='/deputyprincipal' element={<DeputyPrincipal />}/>
         <Route path='/teachers' element={<Teachers />}/>
+        <Route path='/news' element={<News />}/>
+        <Route path='/contact' element={<Contact />}/>
 
         
       </Routes>

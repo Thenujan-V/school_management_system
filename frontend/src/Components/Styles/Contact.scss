@@ -1,0 +1,75 @@
+body {
+font-family: "Libre Baskerville", serif;
+}
+.contact{
+    margin: 60px 0;
+}
+/* Contact info styles */
+.contact-info {
+  background-color: var(--blue);
+  border-radius: 20px;
+  padding: 20px;
+//   margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    color: var(--yellow);
+    margin-bottom: 0.5rem;
+  }
+
+  p, a {
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Contact form styles */
+.contact-form {
+  background-color: var(--blue);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    color: var(--yellow);
+    margin-bottom: 1rem;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  label {
+    color: var(--white);
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .form-control {
+    border: 1px solid var(--white);
+    border-radius: 10px;
+    padding: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+
+    &:focus {
+      border-color: var(--yellow);
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+  }
+
+  .btn-primary {
+    background-color: var(--yellow);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    color: var(--blue);
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+
+    &:hover {
+      background-color: darken(#FAEF5D, 30%);
+    }
+  }
+}

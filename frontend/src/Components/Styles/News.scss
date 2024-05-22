@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+    --yellow: #FAEF5D;
+    --blue: #1D2B53;
+    --white: #FEFAF6;
+    --orange: #F97300;
+    --opacityWhite: rgba(254, 250, 246, 0.4);
+}
+
+/* Global styles */
+body {
+  background-color: var(--opacityWhite);
+  color: var(--blue);
+  font-family: 'Libre Baskerville', serif;
+}
+
+.news-page {
+  padding: 1rem;
+}
+
+.news-header {
+  color: var(--blue);
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--yellow);
+  display: inline-block;
+}
+
+.news-item {
+  background-color: var(--white);
+  border-radius: 0.25rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  .card-body {
+    padding: 1rem;
+  }
+
+  .card-title {
+    color: var(--blue);
+  }
+
+  .btn-outline-primary {
+    color: var(--yellow);
+    border-color: var(--yellow);
+
+    &:hover {
+      background-color: var(--yellow);
+      color: var(--white);
+    }
+  }
+}
+
+.latest-news-widget,
+.categories-widget {
+  background-color: var(--blue);
+  border-radius: 0.25rem;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  h3 {
+    color: var(--yellow);
+    margin-bottom: 1rem;
+  }
+
+    .input-group-append .btn-outline-secondary {
+      color: var(--yellow);
+      border-color: var(--yellow);
+
+      &:hover {
+        background-color: var(--yellow);
+        color: var(--white);
+      }
+    }
+  
+
+  .list-group-item {
+    display: flex;
+    align-items: center;
+
+    .img-thumbnail {
+      max-width: 50px;
+      margin-right: 0.5rem;
+    }
+
+    span {
+      color: var(--blue);
+    }
+  }
+}
