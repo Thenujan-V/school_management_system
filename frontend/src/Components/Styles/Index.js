@@ -14,6 +14,7 @@ import rules from './Rules.scss'
 import contact from './Contact.scss'
 import news from './News.scss'
 import principal from './Principal.scss'
+import syllabusPage from './SyllabusPage.scss'
 
 export {navbar, global, homeIndex, homeAbout, noticeBoard, homeNews, map, signin, downloads, result, resultTable, history,
-     rules, principal, contact, news}
+     rules, principal, contact, news, syllabusPage}

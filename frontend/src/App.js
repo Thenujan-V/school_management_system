@@ -13,6 +13,7 @@ import DeputyPrincipal from './Components/DeputyPrincipal'
 import Teachers from './Components/Teachers'
 import Contact from './Pages/Contact'
 import { News } from './Pages/News'
+import Syllabus from './Pages/Syllabus'
 
 const App = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
         <Route path='/teachers' element={<Teachers />}/>
         <Route path='/news' element={<News />}/>
         <Route path='/contact' element={<Contact />}/>
+        <Route path='/syllabus' element={<Syllabus />}/>
 
         
       </Routes>

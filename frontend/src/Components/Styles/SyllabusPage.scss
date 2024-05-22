@@ -1,0 +1,72 @@
+body {
+  background-color: var(--opacityWhite);
+  color: var(--blue);
+  font-family: 'Libre Baskerville', serif;
+}
+
+.syllabus-page {
+  padding: 2rem 0;
+
+  .nav {
+    background-color: var(--blue);
+    min-height: 100vh;
+
+    h3 {
+      color: var(--yellow);
+    }
+
+    .nav-link {
+      color: var(--white);
+
+      &.active {
+        background-color: var(--yellow);
+        color: var(--blue);
+      }
+    }
+  }
+
+  .page-header {
+    color: var(--yellow);
+    border-bottom: 2px solid var(--yellow);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .list-unstyled {
+    list-style: none;
+    padding-left: 0;
+
+    li {
+      margin-bottom: 0.5rem;
+
+      .dot {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        background-color: var(--yellow);
+        border-radius: 50%;
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+  .stream {
+    margin-bottom: 2rem;
+
+    .stream-header {
+      border-radius: 0.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .table {
+      background-color: var(--white);
+      border: 1px solid var(--blue);
+
+      td {
+        border: 1px solid var(--blue);
+        text-align: center;
+        vertical-align: middle;
+      }
+    }
+  }
+}
