@@ -6,9 +6,10 @@ import com.project.school.Entity.SyllabusEntity;
 import com.project.school.Repository.SyllabusRepo;
 import com.project.school.Service.interfaces.Admin.AddSyllabusService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-
+@Service
 public class AddSyllabusImpl implements AddSyllabusService {
     @Autowired
     private SyllabusRepo syllabusRepo;
