@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Collections;
 import java.util.List;
 
+@CrossOrigin("*")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/student")
@@ -20,4 +21,10 @@ public class ViewSubjectsController {
     private List<String> viewSubjects(@PathVariable("grade") String grade, @PathVariable("term") String term){
         return Collections.singletonList(viewSubjectsService.viewsub(grade, term));
     }
+
+    @GetMapping("/viewsubjectsname/{grade}")
+    private List<String> viewSubjectsName(@PathVariable("grade") String grade){
+        return viewSubjectsService.viewsubName(grade);
+    }
+
 }

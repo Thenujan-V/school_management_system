@@ -14,6 +14,7 @@ import Teachers from './Components/Teachers'
 import Contact from './Pages/Contact'
 import { News } from './Pages/News'
 import Syllabus from './Pages/Syllabus'
+import DownloasView from './Pages/DownloasView'
 
 const App = () => {
   return (
@@ -33,6 +34,7 @@ const App = () => {
         <Route path='/news' element={<News />}/>
         <Route path='/contact' element={<Contact />}/>
         <Route path='/syllabus' element={<Syllabus />}/>
+        <Route path='/downloasview/:grade' element={<DownloasView />}/>
 
         
       </Routes>

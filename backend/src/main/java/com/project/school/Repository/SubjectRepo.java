@@ -12,4 +12,7 @@ import java.util.List;
 public interface SubjectRepo extends JpaRepository<SubjectEntity, Integer> {
     @Query("select s.subject_name from SubjectEntity s where s.grade = :grade and s.term = :term")
     List<String> gettingSubjects(@Param("grade") String grade, @Param("term") String term);
+
+    @Query("select s.subject_name from SubjectEntity s where s.grade = :grade")
+    List<String> getSubjectsName(String grade);
 }
