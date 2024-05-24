@@ -7,12 +7,14 @@ import com.project.school.Service.interfaces.Admin.PrincipleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+
 @Service
 public class PrincipleServiceImpl implements PrincipleService {
     @Autowired
     private PrincipleRepo principleRepo;
     @Override
-    public String addDetails(PrincipleDto principleDto) {
+    public String addDetails(PrincipleDto principleDto) throws IOException {
         if(principleDto.getP_name() == null || principleDto.getStarting_year() == null || principleDto.getEnding_year() == null || principleDto.getDetails() == null || principleDto.getPhoto() == null ){
             return "invalid data";
         }
@@ -20,8 +22,9 @@ public class PrincipleServiceImpl implements PrincipleService {
 
         principleEntity.setP_name(principleDto.getP_name());
         principleEntity.setStarting_year(principleDto.getStarting_year());
+        principleEntity.setEnding_year(principleDto.getEnding_year());
         principleEntity.setDetails(principleDto.getDetails());
-        principleEntity.setPhoto(principleDto.getPhoto());
+        principleEntity.setPhoto(principleDto.getPhoto().getBytes());
 
         try{
             principleRepo.save(principleEntity);

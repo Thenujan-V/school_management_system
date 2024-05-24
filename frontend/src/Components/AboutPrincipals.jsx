@@ -21,24 +21,6 @@ const AboutPrincipals = () => {
                         </p>
                     </div>
                 </div>
-                <div className='principle'>
-                    <h1><span>2021-2022</span>  Mr.AL.Abdul Bary(SLPS)</h1>
-                    <div className='details'>
-                        <img className='img mb-5' src={bari} alt="schoolPic" height='212px'/>
-                        <p>
-                        He has been running our school for 2 years. He led the school to achieve many outstanding achievements in the field of educatucation during that period.
-                        </p>
-                    </div>
-                </div>
-                <div className='principle'>
-                    <h1><span>2021-2022</span>  Mr.AL.Abdul Bary(SLPS)</h1>
-                    <div className='details'>
-                        <img className='img mb-5' src={bari} alt="schoolPic" height='212px'/>
-                        <p>
-                        He has been running our school for 2 years. He led the school to achieve many outstanding achievements in the field of educatucation during that period.
-                        </p>
-                    </div>
-                </div>  
             </div>                                                                                                            
         </div>
     </>
