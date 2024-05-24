@@ -13,5 +13,6 @@ public class PrincipleDto {
     private Integer starting_year;
     private Integer ending_year;
     private String details;
-    private MultipartFile photo;
+    private byte[] photo;
+    private MultipartFile photoFile;
 }

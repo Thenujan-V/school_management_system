@@ -17,12 +17,12 @@ public class addPrincipleDetailsController {
     private PrincipleService principleService;
 
         @PostMapping("/addprinciple")
-    private String addPrincipleDetails(@RequestParam("photo") MultipartFile photo, @RequestParam("p_name") String p_name, @RequestParam("starting_year") Integer starting_year, @RequestParam("ending_year") Integer ending_year, @RequestParam("details") String details) throws IOException {
+    private String addPrincipleDetails(@RequestParam("photo") MultipartFile photoFile, @RequestParam("p_name") String p_name, @RequestParam("starting_year") Integer starting_year, @RequestParam("ending_year") Integer ending_year, @RequestParam("details") String details) throws IOException {
         PrincipleDto principleDto = new PrincipleDto();
         principleDto.setDetails(details);
         principleDto.setEnding_year(ending_year);
-        principleDto.setPhoto(photo);
-            principleDto.setP_name(p_name);
+        principleDto.setPhotoFile(photoFile);
+        principleDto.setP_name(p_name);
         principleDto.setStarting_year((starting_year));
 
         return principleService.addDetails(principleDto);

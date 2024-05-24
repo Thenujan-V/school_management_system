@@ -24,7 +24,7 @@ public class PrincipleServiceImpl implements PrincipleService {
         principleEntity.setStarting_year(principleDto.getStarting_year());
         principleEntity.setEnding_year(principleDto.getEnding_year());
         principleEntity.setDetails(principleDto.getDetails());
-        principleEntity.setPhoto(principleDto.getPhoto().getBytes());
+        principleEntity.setPhoto(principleDto.getPhotoFile().getBytes());
 
         try{
             principleRepo.save(principleEntity);
