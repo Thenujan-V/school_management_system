@@ -13,9 +13,9 @@ import java.util.List;
 public class ViewExamDateController {
     @Autowired
     private ViewExamDateService viewExamDateService;
-    @GetMapping("/viewexamdate/{grade}")
-    private List<String> viewDate(@PathVariable("grade") String grade){
+    @GetMapping("/viewexamdate/{grade}/{term}")
+    private List<String> viewDate(@PathVariable("grade") String grade, @PathVariable("term") String term){
         System.out.println("term");
-        return viewExamDateService.getExamDate(grade);
+        return viewExamDateService.getExamDate(grade, term);
     }
 }

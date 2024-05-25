@@ -3,23 +3,22 @@ import { getExamTimeTable } from '../Services/ExamServices';
 import { viewExamTimes } from './Styles/Index';
 
 
-const ViewExamTimes = ({ grade }) => {
+const ViewExamTimes = ({ grade, Term }) => {
   const [timeTable, setTimeTable] = useState([]);
   const [term, setTerm] = useState('');
+  console.log('term :', Term)
 
   useEffect(() => {
-    const fetchTimes = async (grade) => {
+    const fetchTimes = async (grade, Term) => {
       try {
-        const response = await getExamTimeTable(grade);
+        const response = await getExamTimeTable(grade, Term);
         console.log('response :', response.data);
 
-        // Parse the response data into an array of objects
         const parsedData = response.data.map((item) => {
           const [grade, term, subject, date, time, hall] = item.split(',');
           return { term, subject, date, time, hall };
         });
 
-        // Set the timetable and term (assuming term is the same for all entries)
         setTimeTable(parsedData);
         if (parsedData.length > 0) {
           setTerm(parsedData[0].term);
@@ -28,10 +27,9 @@ const ViewExamTimes = ({ grade }) => {
         console.log('error occur: ', error);
       }
     };
-    fetchTimes(grade);
-  }, [grade]);
+    fetchTimes(grade, Term);
+  }, [grade, Term ]);
 
-  // Helper function to convert term number to term string
   const getTermString = (term) => {
     switch (term) {
       case '1':

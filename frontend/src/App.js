@@ -36,7 +36,7 @@ const App = () => {
         <Route path='/contact' element={<Contact />}/>
         <Route path='/syllabus' element={<Syllabus />}/>
         <Route path='/downloasview/:grade' element={<DownloasView />}/>
-        <Route path='/examtimetable/:grade' element={<ExamTimeTable />}/>
+        <Route path='/examtimetable/:grade/:term' element={<ExamTimeTable />}/>
 
         
       </Routes>

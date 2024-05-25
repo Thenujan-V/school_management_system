@@ -7,14 +7,18 @@ import { useParams } from 'react-router-dom'
 const ExamTimeTable = () => {
     const params = useParams()
     const grade = params.grade
+    const term = params.term
 
   return (
     <div>
         <Navbar />
         <div style={{display:'flex'}}>
-            <ExamTimeVerticalNav />
+            <ExamTimeVerticalNav 
+                grade = {grade}
+            />
             <ViewExamTimes 
                 grade = {grade}
+                Term = {term}
             />
         </div>
     </div>

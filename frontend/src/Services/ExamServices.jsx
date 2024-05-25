@@ -2,10 +2,9 @@ import axios from "axios";
 
 const BASE_URL_API = `http://localhost:8080/api/v1`
 
-export const getExamTimeTable = async(grade) => {
-    console.log('gr :', grade)
+export const getExamTimeTable = async(grade, term) => {
     try{
-        const response = await axios.get(`${BASE_URL_API}/student/viewexamdate/${grade}`)
+        const response = await axios.get(`${BASE_URL_API}/student/viewexamdate/${grade}/${term}`)
         return response
     }
     catch(error){
