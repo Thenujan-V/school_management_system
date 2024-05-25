@@ -5,6 +5,7 @@ import ResultTable from '../Components/ResultTable'
 const Results = () => {
     const [indexNo, setIndexNo] = useState('')
     const [errors, setErrors] = useState({})
+    const [loading, setLoading] = useState(true)
 
 
     const validate = () => {
@@ -21,13 +22,16 @@ const Results = () => {
         e.preventDefault()
         
         if(validate()){
-            console.log('in:',indexNo);
+            setLoading(false)
+            console.log('loo :', loading)
         }
         else{
             console.log('no:');
             
         }
     }
+    console.log('no:', indexNo);
+
   return (
     <>
         <Navbar />
@@ -48,7 +52,12 @@ const Results = () => {
                     <button type='submit'>Submit</button>
                 </form>
             </div>
-            <ResultTable />
+            {
+                loading ? null : 
+                <ResultTable 
+                    indexNo = {indexNo}
+                />
+            }
         </div>
     </>
   )

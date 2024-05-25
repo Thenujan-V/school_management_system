@@ -11,3 +11,13 @@ export const getExamTimeTable = async(grade, term) => {
         throw error
     }
 } 
+
+export const fetchResults = async(inderxNo, term) => {
+    try{
+        const response = await axios.get(`${BASE_URL_API}/student/viewresult/${inderxNo}/1`)
+        return response
+    }
+    catch(error){
+        throw error
+    }
+} 
