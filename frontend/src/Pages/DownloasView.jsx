@@ -16,10 +16,10 @@ const DownloasView = () => {
             <DownloadsNav 
                 grade = {grade}
             />
-            <ViewNotes 
+            {/* <ViewNotes 
                 grade = {grade}
                 subject = 'maths'
-            />
+            /> */}
         </div>
     </div>
   )

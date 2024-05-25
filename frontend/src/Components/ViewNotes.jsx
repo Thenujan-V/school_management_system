@@ -1,58 +1,46 @@
-import React, { useEffect, useState } from 'react'
-import { getSubjectNotes } from '../Services/SyllabusServices'
-import { Link } from 'react-router-dom'
-import { Document, Page, pdfjs } from 'react-pdf';
+// import React, { useEffect, useState } from 'react';
+// import { Worker, Viewer } from '@react-pdf-viewer/core';
+// import '@react-pdf-viewer/core/lib/styles/index.css';
+// import { getSubjectNotes } from '../Services/SyllabusServices';
 
-// Set PDF.js worker source
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+// const base64ToUint8Array = (base64) => {
+//     const binaryString = window.atob(base64);
+//     const len = binaryString.length;
+//     const bytes = new Uint8Array(len);
+//     for (let i = 0; i < len; i++) {
+//         bytes[i] = binaryString.charCodeAt(i);
+//     }
+//     return bytes;
+// };
 
+// const ViewNotes = ({ grade, subject }) => {
+//     const [subjectNotes, setSubjectNotes] = useState(null);
 
-const ViewNotes = ({grade, subject}) => {
-    const [subjectNotes, setSubjectNotes] = useState([])
+//     useEffect(() => {
+//         const fetchNotes = async () => {
+//             try {
+//                 const response = await getSubjectNotes(grade, subject);
+//                 const pdfData = base64ToUint8Array(response.data); // Assuming response.data is base64-encoded
+//                 setSubjectNotes(pdfData);
+//             } catch (error) {
+//                 console.log('notes fetching error:', error);
+//             }
+//         };
+//         fetchNotes();
+//     }, [grade, subject]);
 
-    useEffect(() => {
-        const fetchNotes = async(grade, subject) => {
-            try{
-                const response = await getSubjectNotes(grade, subject)
-                setSubjectNotes(response.data)
-            }
-            catch(error){
-                console.log('notes fetching error :', error)
-            }
-        }
-        fetchNotes(grade, subject)
-    },[grade,subject])
-    const [numPages, setNumPages] = useState(null);
+//     return (
+//         <div>
+//             <h1>GRADE {grade} {subject}</h1>
+//             {subjectNotes ? (
+//                 <Worker workerUrl={`https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`}>
+//                     <Viewer fileUrl={{ data: subjectNotes }} />
+//                 </Worker>
+//             ) : (
+//                 <p>Loading PDF...</p>
+//             )}
+//         </div>
+//     );
+// };
 
-    useEffect(() => {
-        if (subjectNotes) {
-            const pdfBlob = new Blob([subjectNotes], { type: 'application/pdf' });
-            const reader = new FileReader();
-
-            reader.onloadend = () => {
-                const buffer = reader.result;
-                setNumPages(buffer ? 1 : null);
-            };
-
-            reader.readAsArrayBuffer(pdfBlob);
-        }
-    }, [subjectNotes]);
-
-// console.log("maths :",subjectNotes)
-  return (
-    <div>
-            {numPages && (
-                <Document
-                    file={{ data: subjectNotes }}
-                    onLoadError={(error) => console.error('PDF load error:', error)}
-                >
-                    <Page pageNumber={1} />
-                </Document>
-            )}
-            {!numPages && <p>Error: Failed to load PDF data</p>}
-        </div>
-  )
-
-}
-
-export default ViewNotes
+// export default ViewNotes;

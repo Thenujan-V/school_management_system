@@ -15,6 +15,7 @@ import contact from './Contact.scss'
 import news from './News.scss'
 import principal from './Principal.scss'
 import syllabusPage from './SyllabusPage.scss'
+import viewExamTimes from './ViewExamTimes.scss'
 
 export {navbar, global, homeIndex, homeAbout, noticeBoard, homeNews, map, signin, downloads, result, resultTable, history,
-     rules, principal, contact, news, syllabusPage}
+     rules, principal, contact, news, syllabusPage, viewExamTimes}

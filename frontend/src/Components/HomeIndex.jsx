@@ -28,8 +28,8 @@ const HomeIndex = () => {
     </div>
     <div id='educates'>
         <div id='download'><Link id='link' to='/downloads'>Downloads</Link></div>
-        <div id='result'><Link id='link' to='results'>Exam Result 6-9</Link></div>
-        <div id='exam'><Link id='link' to='results'>Exam Result 10-11</Link></div>
+        <div id='result'><Link id='link' to='/results'>Exam Result 6-11</Link></div>
+        <div id='exam'><Link id='link' to='/examtimetable/:grade'>Exam Time Table</Link></div>
     </div>
     </>
   )

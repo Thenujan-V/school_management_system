@@ -1,0 +1,42 @@
+// Custom styles for the ViewExamTimes component
+
+.exam-timetable-container {
+    margin: 20px;
+    text-align: center;
+    width: 100%;
+
+    .table {
+        margin-top: 20px;
+        border: 1px solid #dee2e6;
+      }
+      
+      .table th, .table td {
+        text-align: center;
+      }
+      
+      .table thead th {
+        background-color: #f8f9fa;
+        color: #495057;
+      }
+      
+      .table tbody tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+      
+      h1 {
+        margin: 20px;
+        margin: 20px;
+        font-family: "Libre Baskerville", serif;
+        color: var(--blue);
+        font-style: italic;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 36px;
+      }
+
+}
+  
+  
+  

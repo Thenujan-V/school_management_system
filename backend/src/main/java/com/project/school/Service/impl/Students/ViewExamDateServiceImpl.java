@@ -12,8 +12,8 @@ public class ViewExamDateServiceImpl implements ViewExamDateService {
     @Autowired
     private ExamRepo examRepo;
     @Override
-    public List<String> getExamDate(String grade, String term) {
+    public List<String> getExamDate(String grade) {
         System.out.println("grade");
-        return examRepo.gettingDate(grade, term);
+        return examRepo.gettingDate(grade);
     }
 }
