@@ -24,7 +24,7 @@ const DownloadsNav = ({grade}) => {
         {
             subjects && subjects.length > 0 && subjects.map((subject) => (
                 <div className="links">
-                    <Link to='/abouthistorybody' className='link'>{subject}</Link>
+                    <Link to='/' className='link'>{subject}</Link>
                 </div>
             ))
         }
