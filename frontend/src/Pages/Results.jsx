@@ -4,6 +4,7 @@ import ResultTable from '../Components/ResultTable'
 
 const Results = () => {
     const [indexNo, setIndexNo] = useState('')
+    const [term, setTerm] = useState('')
     const [errors, setErrors] = useState({})
     const [loading, setLoading] = useState(true)
 
@@ -13,8 +14,10 @@ const Results = () => {
         if(!indexNo){
             newError.indexNo = "Index number is require"
         }
+        if(!term){
+            newError.term = "Term is require"
+        }
         setErrors(newError)
-        console.log('ee : ',newError)
         return Object.keys(newError).length === 0
     }
 
@@ -23,14 +26,12 @@ const Results = () => {
         
         if(validate()){
             setLoading(false)
-            console.log('loo :', loading)
         }
         else{
             console.log('no:');
             
         }
     }
-    console.log('no:', indexNo);
 
   return (
     <>
@@ -47,7 +48,17 @@ const Results = () => {
                             name='index'
                             value={indexNo}
                             onChange={(e) => setIndexNo(e.target.value)}/>
-                            <p>{errors.indexNo}  </p>
+                            <p>{errors.indexNo}</p>
+                    </div>
+                    <div className='form-group'>
+                        <label htmlFor="index">Term</label>
+                        <input 
+                            type="text" 
+                            id='term' 
+                            name='term'
+                            value={term}
+                            onChange={(e) => setTerm(e.target.value)}/>
+                            <p>{errors.term}</p>
                     </div>
                     <button type='submit'>Submit</button>
                 </form>
@@ -56,6 +67,7 @@ const Results = () => {
                 loading ? null : 
                 <ResultTable 
                     indexNo = {indexNo}
+                    term = {term}
                 />
             }
         </div>

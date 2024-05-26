@@ -14,7 +14,7 @@ export const getExamTimeTable = async(grade, term) => {
 
 export const fetchResults = async(inderxNo, term) => {
     try{
-        const response = await axios.get(`${BASE_URL_API}/student/viewresult/${inderxNo}/1`)
+        const response = await axios.get(`${BASE_URL_API}/student/viewresult/${inderxNo}/${term}`)
         return response
     }
     catch(error){
