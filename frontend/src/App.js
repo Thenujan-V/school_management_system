@@ -16,6 +16,7 @@ import { News } from './Pages/News'
 import Syllabus from './Pages/Syllabus'
 import DownloasView from './Pages/DownloasView'
 import ExamTimeTable from './Pages/ExamTimeTable'
+import DownloadsNav from './Components/DownloadsNav'
 
 const App = () => {
   return (
@@ -35,7 +36,8 @@ const App = () => {
         <Route path='/news' element={<News />}/>
         <Route path='/contact' element={<Contact />}/>
         <Route path='/syllabus' element={<Syllabus />}/>
-        <Route path='/downloasview/:grade' element={<DownloasView />}/>
+        {/* <Route path='/downloasview/:grade' element={<DownloadsNav />}/> */}
+        <Route path='/downloasview/:grade/:subject' element={<DownloasView />}/>
         <Route path='/examtimetable/:grade/:term' element={<ExamTimeTable />}/>
 
         

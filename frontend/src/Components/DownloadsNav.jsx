@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { getSubjectNames } from '../Services/SyllabusServices'
 
 const DownloadsNav = ({grade}) => {
+    const navigater = useNavigate()
     const [subjects, setSubjects] = useState([])
 
     useEffect(() => {
         const fetchSubjects = async(grade) => {
             try{
                 const response = await getSubjectNames(grade)
+            console.log('res :', response.data)
+
                 setSubjects(response.data)
             }
             catch(error){
@@ -17,6 +20,11 @@ const DownloadsNav = ({grade}) => {
         }
         fetchSubjects(grade) 
     },[])
+    
+    const redirectPage = (grade, sub) => {
+        console.log(sub)
+        navigater(`/downloasview/${grade}/${sub}`)
+    }
 
   return (
     <div className='verticalNav'>
@@ -24,7 +32,8 @@ const DownloadsNav = ({grade}) => {
         {
             subjects && subjects.length > 0 && subjects.map((subject) => (
                 <div className="links">
-                    <Link to='/' className='link'>{subject}</Link>
+                    {/* <Link to={`/downloasview/${grade}/${subject}`} className='link'>{subject}</Link> */}
+                    <Link onClick={() => redirectPage(grade, subject)} className='link'>{subject}</Link>
                 </div>
             ))
         }

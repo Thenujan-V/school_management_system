@@ -5,9 +5,7 @@ import jakarta.annotation.Resource;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -21,12 +19,18 @@ public class ViewSyllabusController {
     private ViewSyllabusService viewSyllabusService;
     @GetMapping("/viewsyllabus/{grade}/{subject}")
     public ResponseEntity<byte[]> viewSyllabus(@PathVariable("grade") String grade, @PathVariable("subject") String subject) {
-        byte[] pdfContent;
-        pdfContent = viewSyllabusService.viewSyllabusPDF(grade, subject);
+        try {
+            byte[] pdfContent = viewSyllabusService.viewSyllabusPDF(grade, subject);
 
-        if (pdfContent != null) {
-            return ResponseEntity.ok(pdfContent);
-        } else {
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_PDF);
+            headers.setContentDisposition(ContentDisposition.inline().filename("syllabus.pdf").build());
+
+            return ResponseEntity
+                    .ok()
+                    .headers(headers)
+                    .body(pdfContent);
+        } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
     }

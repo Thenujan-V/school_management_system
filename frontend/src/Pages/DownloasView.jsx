@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../Components/Navbar'
 import DownloadsNav from '../Components/DownloadsNav'
 import { useNavigate, useParams } from 'react-router-dom'
@@ -7,19 +7,31 @@ import { faDisplay } from '@fortawesome/free-solid-svg-icons'
 
 const DownloasView = () => {
     const params = useParams()
+    const [subject, setSubject] = useState('')
     const grade = params.grade
-    console.log('grade :', params.grade)
+    
+    useEffect(() => {
+        if(params.subject){
+            setSubject(params.subject)
+        }
+    }, [params])
+    console.log('sub :' , subject)
+
   return (
     <div>
         <Navbar />
         <div style={{display:'flex'}}>
             <DownloadsNav 
                 grade = {grade}
+                // subject = {subject}
             />
-            <ViewNotes 
+            {
+                !subject ? 
+                <ViewNotes 
                 grade = {grade}
-                subject = 'maths'
-            />
+                subject = {subject}
+            />:<p>SELECT SUBJECT</p>
+            }
         </div>
     </div>
   )

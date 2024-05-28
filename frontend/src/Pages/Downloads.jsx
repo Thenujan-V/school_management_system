@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from '../Components/Navbar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileLines } from '@fortawesome/free-solid-svg-icons';
@@ -6,13 +6,14 @@ import { downloads } from '../Components/Styles/Index';
 import { Link } from 'react-router-dom';
 
 const Downloads = () => {
+    const [subject, setSubject] = useState('maths')
   return (
     <>
         <Navbar />
         <div className='container' id='downloads'>
             <h1>syllabus Meterials</h1>
             <div className='row grades'>
-                <Link to='/downloasview/6' className='col-lg-3 grade'>
+                <Link to={`/downloasview/6/${subject}`} className='col-lg-3 grade'>
                     <FontAwesomeIcon icon={faFileLines} id='FontAwesomeIcon'/>
                     <p>Grade 6</p>
                 </Link>
