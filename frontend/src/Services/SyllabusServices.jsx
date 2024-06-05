@@ -13,7 +13,7 @@ export const getSubjectNames = async(grade) => {
     }
 }
 export const getSubjectNotes = async(grade, subject) => {
-    console.log(grade, subject)
+    console.log('grad :',subject)
     try{
         const response = await axios.get(`${BASE_URL_API}/student/viewsyllabus/${grade}/${subject}`, {
             headers: {

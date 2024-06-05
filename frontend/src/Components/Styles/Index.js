@@ -16,6 +16,9 @@ import news from './News.scss'
 import principal from './Principal.scss'
 import syllabusPage from './SyllabusPage.scss'
 import viewExamTimes from './ViewExamTimes.scss'
+import verticalNavbar from './VerticalNavbar.scss'
+import registerStudents from './RegisterStudents.scss'
+import addExamDate from './AddExamDate.scss'
 
 export {navbar, global, homeIndex, homeAbout, noticeBoard, homeNews, map, signin, downloads, result, resultTable, history,
-     rules, principal, contact, news, syllabusPage, viewExamTimes}
+     rules, principal, contact, news, syllabusPage, viewExamTimes, verticalNavbar, registerStudents, addExamDate}

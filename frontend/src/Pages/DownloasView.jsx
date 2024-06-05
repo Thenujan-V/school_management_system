@@ -26,7 +26,7 @@ const DownloasView = () => {
                 // subject = {subject}
             />
             {
-                !subject ? 
+                subject !== '' ? 
                 <ViewNotes 
                 grade = {grade}
                 subject = {subject}

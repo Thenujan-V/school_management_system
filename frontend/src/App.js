@@ -17,6 +17,14 @@ import Syllabus from './Pages/Syllabus'
 import DownloasView from './Pages/DownloasView'
 import ExamTimeTable from './Pages/ExamTimeTable'
 import DownloadsNav from './Components/DownloadsNav'
+import VerticalNavbar from './Components/AdminComponents/VerticalNavbar'
+import RegisterStudents from './Components/AdminComponents/RegisterStudents'
+import AddExamDate from './Components/AdminComponents/AddExamDate'
+
+
+const ExamMarks = () => <div>Exam Marks Page</div>;
+const PrincipalDetails = () => <div>Principal Details Page</div>;
+const SyllabusPastPapers = () => <div>Syllabus & Past Papers Page</div>;
 
 const App = () => {
   return (
@@ -40,7 +48,13 @@ const App = () => {
         <Route path='/downloasview/:grade/:subject' element={<DownloasView />}/>
         <Route path='/examtimetable/:grade/:term' element={<ExamTimeTable />}/>
 
-        
+        <Route path="/register-students" element={<RegisterStudents />} />
+        <Route path="/exam-calendar" element={<AddExamDate />} />
+        <Route path="/exam-marks" element={ExamMarks} />
+        <Route path="/principal-details" element={PrincipalDetails} />
+        <Route path="/syllabus-past-papers" element={SyllabusPastPapers} />
+        <Route path="/adminpanel" element={<VerticalNavbar />} />
+
       </Routes>
     </>
   )

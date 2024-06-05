@@ -5,7 +5,8 @@ const ViewNotes = ({ grade, subject }) => {
     const [pdfUrl, setPdfUrl] = useState('');
 
     useEffect(() => {
-        const fetchNotes = async () => {
+        const fetchNotes = async (grade, subject) => {
+            console.log('subject :', subject)
             try {
                 const response = await getSubjectNotes(grade, subject);
 
@@ -23,7 +24,7 @@ const ViewNotes = ({ grade, subject }) => {
             }
         };
 
-        fetchNotes();
+        fetchNotes(grade, subject);
     }, [grade, subject]);
 console.log('pfdurl :', pdfUrl)
     return (
