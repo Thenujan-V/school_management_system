@@ -1,5 +1,6 @@
 package com.project.school.Service.impl.Students;
 
+import com.project.school.Entity.SubjectEntity;
 import com.project.school.Repository.SubjectRepo;
 import com.project.school.Service.interfaces.Students.ViewSubjectsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,13 +14,13 @@ public class ViewSubjectsServiceImpl implements ViewSubjectsService {
     @Autowired
     private SubjectRepo subjectRepo;
     @Override
-    public String viewsub(String grade, String term) {
+    public List<SubjectEntity> viewsub(String grade, String term) {
         try{
-            return subjectRepo.gettingSubjects(grade, term).toString();
+            return subjectRepo.gettingSubjects(grade, term);
         }
         catch(Exception e){
             System.out.println("Some Error Occurs :"+e.getMessage());
-            return "error getting data";
+            return null;
         }
     }
 
