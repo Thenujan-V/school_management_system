@@ -1,0 +1,26 @@
+.syllabus-form {
+    max-width: 600px;
+    margin: 0 auto;
+
+    h2 {
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-control,
+    .form-control-file {
+        border-radius: 0;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        &:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+    }
+}

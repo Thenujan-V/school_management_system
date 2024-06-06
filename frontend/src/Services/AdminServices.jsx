@@ -12,3 +12,13 @@ export const addExamTimeTable = async(datas) => {
         throw error
     }
 } 
+
+export const addSyllabus = async(data) => {
+    try{
+        const response = await axios.post(`${BASE_URL_API}/admin/addsyllabus`, data)
+        return response
+    }
+    catch(error){
+        throw error
+    }
+} 
