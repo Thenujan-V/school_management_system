@@ -20,6 +20,9 @@ import verticalNavbar from './VerticalNavbar.scss'
 import registerStudents from './RegisterStudents.scss'
 import addExamDate from './AddExamDate.scss'
 import syllabusForm from './SyllabusForm.scss'
+import resultsForm from './ResultsForm.scss'
 
 export {navbar, global, homeIndex, homeAbout, noticeBoard, homeNews, map, signin, downloads, result, resultTable, history,
-     rules, principal, contact, news, syllabusPage, viewExamTimes, verticalNavbar, registerStudents, addExamDate, syllabusForm}
+     rules, principal, contact, news, syllabusPage, viewExamTimes, verticalNavbar, registerStudents, addExamDate, syllabusForm,
+     resultsForm
+}

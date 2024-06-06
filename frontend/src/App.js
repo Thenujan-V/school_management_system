@@ -21,6 +21,7 @@ import VerticalNavbar from './Components/AdminComponents/VerticalNavbar'
 import RegisterStudents from './Components/AdminComponents/RegisterStudents'
 import AddExamDate from './Components/AdminComponents/AddExamDate'
 import SyllabusForm from './Components/AdminComponents/SyllabusForm'
+import ResultsForm from './Components/AdminComponents/ResultsForm'
 
 
 const ExamMarks = () => <div>Exam Marks Page</div>;
@@ -51,7 +52,7 @@ const App = () => {
 
         <Route path="/register-students" element={<RegisterStudents />} />
         <Route path="/exam-calendar" element={<AddExamDate />} />
-        <Route path="/exam-marks" element={ExamMarks} />
+        <Route path="/exam-marks" element={<ResultsForm />} />
         <Route path="/principal-details" element={PrincipalDetails} />
         <Route path="/syllabus-add" element={<SyllabusForm />} />
         <Route path="/adminpanel" element={<VerticalNavbar />} />
