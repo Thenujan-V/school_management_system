@@ -56,13 +56,19 @@ const ResultsForm = () => {
         });
     };
 
+    const handleClear = () => {
+        setMarks([])
+    }
+
     const handleSubmit = async(e) => {
         e.preventDefault();
         console.log('data:', marks);
         try {
             const promises = marks.map(mark => addResult(mark));
             await Promise.all(promises);
-            console.log('All marks submitted successfully');
+            alert('All marks submitted successfully');
+            handleClear()
+
         } catch (error) {
             console.log('error occurred:', error);
         }
@@ -133,9 +139,9 @@ const ResultsForm = () => {
                                                     <input
                                                         type="number"
                                                         className="form-control"
-                                                        value={marks.find(mark => mark.student_id === student.student_id && mark.exam_id === subject.exam_id)?.marks || ''}
+                                                        value={marks && marks.find(mark => mark.student_id === student.student_id && mark.exam_id === subject.exam_id)?.marks || ''}
                                                         onChange={(e) => handleMarksChange(student.student_id, subject.exam_id, e.target.value)}
-                                                        required
+                                                        
                                                     />
                                                 </td>
                                             ))}

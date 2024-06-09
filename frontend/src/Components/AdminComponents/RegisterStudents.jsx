@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { registerStudents } from '../Styles/Index';
 import VerticalNavbar from './VerticalNavbar';
+import { studentsSignup } from '../../Services/AdminServices';
 
 const RegisterStudents = () => {
     const [formData, setFormData] = useState({
@@ -11,30 +12,75 @@ const RegisterStudents = () => {
         phone2: '',
         dob: '',
         password: '',
-        confirmPassword: ''
+        confirmPassword: '',
+        grade: ''
     });
-    const [error, setError] = useState('');
+    const [errors, setErrors] = useState({});
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
 
-    const handleSubmit = (e) => {
+    const handleClear = () => {
+        setFormData({
+            firstName: '',
+            lastName: '',
+            studentNo: '',
+            phone1: '',
+            phone2: '',
+            dob: '',
+            password: '',
+            confirmPassword: '',
+            grade: ''
+        });
+        setErrors({});
+    };
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
+
+        const validationErrors = {};
         
-        if (formData.password !== formData.confirmPassword) {
-            setError('Passwords do not match');
-            return;
+        // Check for empty fields
+        for (const key in formData) {
+            if (!formData[key]) {
+                validationErrors[key] = 'This field is empty';
+            }
         }
-        
+
+        // Check if passwords match
+        if (formData.password !== formData.confirmPassword) {
+            validationErrors.confirmPassword = 'Passwords do not match';
+        }
+
+        // Check password length
         if (formData.password.length < 8) {
-            setError('Password must be at least 8 characters long');
+            validationErrors.password = 'Password must be at least 8 characters long';
+        }
+
+        if (Object.keys(validationErrors).length > 0) {
+            setErrors(validationErrors);
             return;
         }
 
-        console.log('Form data submitted:', formData);
-        setError(''); 
+        try {
+            const data = {
+                first_name: formData.firstName,
+                last_name: formData.lastName,
+                index_number: formData.studentNo,
+                date_of_birth: formData.dob,
+                first_phone_number: formData.phone1,
+                second_phone_number: formData.phone2,
+                grade: formData.grade,
+                password: formData.password
+            };
+            await studentsSignup(data);
+            console.log('successfully added');
+            handleClear();
+        } catch (error) {
+            console.log('error :', error);
+        }
     };
 
     return (
@@ -54,8 +100,9 @@ const RegisterStudents = () => {
                         name="firstName"
                         value={formData.firstName}
                         onChange={handleChange}
-                        required
                     />
+                    {errors.firstName && <div className="error" style={{color:'red', textAlign:'end'}}>{errors.firstName}</div>}
+
                 </div>
                 <div className="form-group">
                     <label htmlFor="lastName">Last Name</label>
@@ -66,8 +113,10 @@ const RegisterStudents = () => {
                         name="lastName"
                         value={formData.lastName}
                         onChange={handleChange}
-                        required
+                        
                     />
+                    {errors.lastName && <div className="error" style={{color:'red', textAlign:'end'}}>{errors.lastName}</div>}
+
                 </div>
                 <div className="form-group">
                     <label htmlFor="studentNo">Student No</label>
@@ -78,8 +127,23 @@ const RegisterStudents = () => {
                         name="studentNo"
                         value={formData.studentNo}
                         onChange={handleChange}
-                        required
+                        
                     />
+                    {errors.studentNo && <div className="error" style={{color:'red', textAlign:'end'}}>{errors.studentNo}</div>}
+
+                </div>
+                <div className="form-group">
+                    <label htmlFor="grade">Grade</label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        id="grade"
+                        name="grade"
+                        value={formData.grade}
+                        onChange={handleChange}
+                        
+                    />
+                    {errors.grade && <div className="error" style={{color:'red', textAlign:'end'}}>{errors.grade}</div>}
                 </div>
                 <div className="form-group">
                     <label htmlFor="phone1">First Phone Number</label>
@@ -90,8 +154,9 @@ const RegisterStudents = () => {
                         name="phone1"
                         value={formData.phone1}
                         onChange={handleChange}
-                        required
+                        
                     />
+                    {errors.phone1 && <div className="error" style={{color:'red', textAlign:'end'}}>{errors.phone1}</div>}
                 </div>
                 <div className="form-group">
                     <label htmlFor="phone2">Second Phone Number</label>
@@ -103,6 +168,7 @@ const RegisterStudents = () => {
                         value={formData.phone2}
                         onChange={handleChange}
                     />
+                    {errors.phone2 && <div className="error" style={{color:'red', textAlign:'end'}}>{errors.phone2}</div>}
                 </div>
                 <div className="form-group">
                     <label htmlFor="dob">Date of Birth</label>
@@ -113,8 +179,9 @@ const RegisterStudents = () => {
                         name="dob"
                         value={formData.dob}
                         onChange={handleChange}
-                        required
+                        
                     />
+                    {errors.dob && <div className="error" style={{color:'red', textAlign:'end'}}>{errors.dob}</div>}
                 </div>
                 <div className="form-group">
                     <label htmlFor="password">Password</label>
@@ -125,8 +192,9 @@ const RegisterStudents = () => {
                         name="password"
                         value={formData.password}
                         onChange={handleChange}
-                        required
+                        
                     />
+                    {errors.password && <div className="error" style={{color:'red', textAlign:'end'}}>{errors.password}</div>}
                 </div>
                 <div className="form-group">
                     <label htmlFor="confirmPassword">Confirm Password</label>
@@ -137,9 +205,11 @@ const RegisterStudents = () => {
                         name="confirmPassword"
                         value={formData.confirmPassword}
                         onChange={handleChange}
-                        required
+                        
                     />
                 </div>
+                {errors.confirmPassword && <div className="error" style={{color:'red', textAlign:'end'}}>{errors.confirmPassword}</div>}
+
                 <button type="submit" className="btn btn-primary">Register</button>
             </form>
         </div>

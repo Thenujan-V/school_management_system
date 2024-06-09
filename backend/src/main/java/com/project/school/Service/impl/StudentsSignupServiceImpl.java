@@ -17,11 +17,12 @@ public class StudentsSignupServiceImpl implements StudentsSignupService {
     @Override
     public StudentsEntity registration(StudentSignup studentSignup) {
         StudentsEntity studentsEntity = new StudentsEntity();
-
+        System.out.println("de :"+ studentSignup);
         studentsEntity.setFirst_name(studentSignup.getFirst_name());
         studentsEntity.setLast_name(studentSignup.getLast_name());
         studentsEntity.setDate_of_birth(studentSignup.getDate_of_birth());
         studentsEntity.setIndex_number(studentSignup.getIndex_number());
+        studentsEntity.setGrade(studentSignup.getGrade());
         studentsEntity.setFirst_phone_number(studentSignup.getFirst_phone_number());
         studentsEntity.setSecond_phone_number(studentSignup.getSecond_phone_number());
         studentsEntity.setPassword(studentSignup.getPassword());

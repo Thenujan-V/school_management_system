@@ -42,3 +42,13 @@ export const addResult = async(datas) => {
         throw error
     }
 }
+
+export const studentsSignup = async(datas) => {
+    try{
+        const response = await axios.post(`${BASE_URL_API}/admin/signup`, datas)
+        return response
+    }
+    catch(error){
+        throw error
+    }
+}
