@@ -22,3 +22,23 @@ export const addSyllabus = async(data) => {
         throw error
     }
 } 
+
+export const studentDetails = async(grade) => {
+    try{
+        const response = await axios.get(`${BASE_URL_API}/admin/viewstudentsgradewish/${grade}`)
+        return response
+    }
+    catch(error){
+        throw error
+    }
+}
+
+export const addResult = async(datas) => {
+    try{
+        const response = await axios.post(`${BASE_URL_API}/admin/addresult`, datas)
+        return response
+    }
+    catch(error){
+        throw error
+    }
+}

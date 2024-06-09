@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -13,4 +14,5 @@ public interface StudentsRepo extends JpaRepository<StudentsEntity, Long> {
     @Query("SELECT s FROM StudentsEntity s WHERE s.index_number = :indexNo")
     Optional<StudentsEntity> findByIndexNo(@Param("indexNo") String indexNo);
 
+    List<StudentsEntity> findByGrade(int grade);
 }

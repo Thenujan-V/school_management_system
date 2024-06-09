@@ -16,6 +16,7 @@ public class StudentSignup {
     private String index_number;
     private Date date_of_birth;
     private String first_phone_number;
+    private int grade;
     private String second_phone_number;
     private String password;
 }

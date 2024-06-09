@@ -19,7 +19,14 @@ public class ViewStudentsDetailsController {
     private List<StudentsEntity> viewAllStudents() {
         return viewStudentsDetails.viewDetails();
     }
+
+    @GetMapping("/viewstudentsgradewish/{grade}")
+    private List<StudentsEntity> viewStudents(@PathVariable("grade") int grade){
+        return viewStudentsDetails.viewStudent(grade);
+    }
 }
+
+
 
 
 

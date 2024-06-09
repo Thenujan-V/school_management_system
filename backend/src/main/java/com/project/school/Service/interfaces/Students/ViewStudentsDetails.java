@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface ViewStudentsDetails {
     List<StudentsEntity> viewDetails();
+
+    List<StudentsEntity> viewStudent(int grade);
 }

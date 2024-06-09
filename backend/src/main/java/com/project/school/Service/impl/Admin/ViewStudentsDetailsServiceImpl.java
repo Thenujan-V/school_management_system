@@ -16,4 +16,9 @@ public class ViewStudentsDetailsServiceImpl implements ViewStudentsDetails {
     public List<StudentsEntity> viewDetails() {
         return studentsRepo.findAll();
     }
+
+    @Override
+    public List<StudentsEntity> viewStudent(int grade) {
+        return studentsRepo.findByGrade(grade);
+    }
 }
