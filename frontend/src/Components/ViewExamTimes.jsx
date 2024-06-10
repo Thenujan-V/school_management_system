@@ -15,8 +15,10 @@ const ViewExamTimes = ({ grade, Term }) => {
         console.log('response :', response.data);
 
         const parsedData = response.data.map((item) => {
-          const [grade, term, subject, date, time, hall] = item.split(',');
-          return { term, subject, date, time, hall };
+    console.log('iii :',item )
+
+          const [examId, grade, term, subject, subjectId, date, time, hall] = item.split(',');
+          return {examId, grade, term, subject, date, time, hall };
         });
 
         setTimeTable(parsedData);
@@ -31,6 +33,8 @@ const ViewExamTimes = ({ grade, Term }) => {
   }, [grade, Term ]);
 
   const getTermString = (term) => {
+    {console.log('ter :',term)}
+
     switch (term) {
       case '1':
         return '1st Term';
@@ -45,7 +49,7 @@ const ViewExamTimes = ({ grade, Term }) => {
 
   return (
     <div className="exam-timetable-container">
-      <h1>Exam Time Table for Grade {grade} - {getTermString(term)}</h1>
+      <h1>Exam Time Table for Grade {grade} - {getTermString(Term)}</h1>
       <table className="table table-striped table-bordered">
         <thead>
           <tr>
