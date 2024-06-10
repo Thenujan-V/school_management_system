@@ -4,6 +4,7 @@ import com.project.school.Dto.Admin.ExamDto;
 import com.project.school.Entity.ExamEntity;
 import com.project.school.Repository.ExamRepo;
 import com.project.school.Service.interfaces.Admin.AddExamDateService;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,4 +33,6 @@ public class AddExamDateImpl implements AddExamDateService {
             return "error";
         }
     }
+
+
 }

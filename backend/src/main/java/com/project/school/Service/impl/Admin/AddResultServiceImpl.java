@@ -36,4 +36,6 @@ public class AddResultServiceImpl implements AddResultService {
             return "error";
         }
     }
+
+
 }

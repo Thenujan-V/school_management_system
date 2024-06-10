@@ -52,3 +52,13 @@ export const studentsSignup = async(datas) => {
         throw error
     }
 }
+
+export const deleteExamSubject = async(exam_id, subject_id) => {
+    try{
+        const response = await axios.delete(`${BASE_URL_API}/admin/deleteexamdate/${exam_id}/${subject_id}`)
+        return response
+    }
+    catch(error){
+        throw error
+    }
+}
