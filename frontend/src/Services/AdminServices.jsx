@@ -84,3 +84,13 @@ export const allStudentsAllMarks = async(grade, term) => {
         throw error
     }
 }
+
+export const addSubjects = async(data) => {
+    try{
+        const response = await axios.post(`${BASE_URL_API}/admin/addsubject`, data)
+        return response
+    }
+    catch(error){
+        throw error
+    }
+}

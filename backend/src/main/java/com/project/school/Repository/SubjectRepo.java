@@ -13,8 +13,8 @@ public interface SubjectRepo extends JpaRepository<SubjectEntity, Integer> {
     @Query("select s from SubjectEntity s where s.grade = :grade and s.term = :term")
     List<SubjectEntity> gettingSubjects(@Param("grade") String grade, @Param("term") String term);
 
-    @Query("select s.subject_name from SubjectEntity s where s.grade = :grade")
-    List<String> getSubjectsName(String grade);
+    @Query("select s.subject_name from SubjectEntity s where s.grade = :grade and s.term = :term")
+    List<String> getSubjectsName(String grade, String term);
 
     @Query("select s.subject_id from SubjectEntity s where s.grade = :grade and s.term = :term")
     List<Integer> findSubjectIds(@Param("grade") int grade, @Param("term") int term);

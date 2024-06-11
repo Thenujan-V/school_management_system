@@ -27,7 +27,7 @@ public class ViewSubjectsServiceImpl implements ViewSubjectsService {
     @Override
     public List<String> viewsubName(String grade) {
         try{
-            return subjectRepo.getSubjectsName(grade);
+            return subjectRepo.getSubjectsName(grade, "1");
         }
         catch(Exception e){
             System.out.println("Some Error Occurs :"+e.getMessage());
