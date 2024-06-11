@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { signin } from './Styles/Index';
 import axios from 'axios'    
+import { signinStudents } from '../Services/StudentsServices';
 
 
 const Signin = () => {
@@ -10,7 +11,7 @@ const Signin = () => {
     });
 
     const [errors, setErrors] = useState({});
-
+    const [signin, setSignin] = useState('')
     // Handle form input changes
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -40,12 +41,15 @@ const Signin = () => {
         e.preventDefault();
         
         if (validate()) {
-            console.log('in:', formData.index_number);
-            console.log('pw:', formData.password);
-            
-
-            const response = await axios.post('http://localhost:8080/api/v1/student/signin', formData)
-            console.log('response : ',response.data)
+            try{
+                const response = await signinStudents(formData)
+                setSignin(response.data)
+                localStorage.setItem('token',response.data)
+                
+            }
+            catch(error){
+                console.log('singin faild :', error)
+            }
         }
     };
   return (

@@ -1,8 +1,24 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../Components/Navbar'
 import ResultTable from '../Components/ResultTable'
+import { decodeToken } from '../Services/TokenServices'
+import { useNavigate } from 'react-router-dom'
 
 const Results = () => {
+    const navigate = useNavigate()
+    const decodedToken = decodeToken()
+    const [index_no, setIndex_no] = useState('')
+
+    useEffect(() => {
+        if(decodedToken){
+            const studentId = decodedToken.id
+            setIndexNo(studentId)
+        }
+        else{
+            setIndexNo('')
+        }
+    }, [decodedToken])
+
     const [indexNo, setIndexNo] = useState('')
     const [term, setTerm] = useState('')
     const [errors, setErrors] = useState({})
@@ -45,7 +61,7 @@ const Results = () => {
                         <input 
                             type="text" 
                             id='indexInput' 
-                            name='index'
+                            name='index' 
                             value={indexNo}
                             onChange={(e) => setIndexNo(e.target.value)}/>
                             <p>{errors.indexNo}</p>

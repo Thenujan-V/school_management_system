@@ -15,7 +15,6 @@ const ViewExamTimes = ({ grade, Term }) => {
         console.log('response :', response.data);
 
         const parsedData = response.data.map((item) => {
-    console.log('iii :',item )
 
           const [examId, grade, term, subject, subjectId, date, time, hall] = item.split(',');
           return {examId, grade, term, subject, date, time, hall };

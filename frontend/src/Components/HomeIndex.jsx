@@ -1,8 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { homeIndex } from './Styles/Index'
 import { child, student, school } from './Assets/Index'
 import { Link } from 'react-router-dom'
+import { decodeToken } from '../Services/TokenServices'
+import { useNavigate } from 'react-router-dom';
+
+
 const HomeIndex = () => {
+    const navigate = useNavigate()
+    const decodedToken = decodeToken()
+    const [indexNo, setIndexNo] = useState('')
+
+    useEffect(() => {
+        if(decodedToken){
+            const studentId = decodedToken.id
+            setIndexNo(studentId)
+        }
+        else{
+            setIndexNo('')
+        }
+    }, [decodedToken])
   return (
     <>
     <div id="carousel" classNameName="carousel slide carousel-fade" data-bs-ride="carousel">
@@ -27,9 +44,9 @@ const HomeIndex = () => {
         </button>
     </div>
     <div id='educates'>
-        <div id='download'><Link id='link' to='/downloads'>Downloads</Link></div>
-        <div id='result'><Link id='link' to='/results'>Exam Result 6-11</Link></div>
-        <div id='exam'><Link id='link' to='/examtimetable/:grade/:term'>Exam Time Table</Link></div>
+        <div id='download'><Link id='link' to={indexNo ? '/downloads' : '/'}>Downloads</Link></div>
+        <div id='result'><Link id='link' to={indexNo ? '/results' : '/'}>Exam Result 6-11</Link></div>
+        <div id='exam'><Link id='link' to={indexNo ? '/examtimetable/:grade/:term' : '/'}>Exam Time Table</Link></div>
     </div>
     </>
   )
