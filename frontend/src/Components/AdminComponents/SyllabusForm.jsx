@@ -51,48 +51,48 @@ const SyllabusForm = () => {
             <div style={{flex:'1'}}>
                 <VerticalNavbar />
             </div>
-        <div className="syllabus-form container mt-5">
-            <h2>Add Syllabus</h2>
-            <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label htmlFor="subjectName">Subject Name</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        id="subjectName"
-                        name="subjectName"
-                        value={formData.subjectName}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="grade">Grade</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        id="grade"
-                        name="grade"
-                        value={formData.grade}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="syllabus">Syllabus PDF</label>
-                    <input
-                        type="file"
-                        className="form-control-file"
-                        id="syllabus"
-                        name="syllabus"
-                        accept=".pdf"
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
-            </form>
-        </div>
+            <div className="syllabus-form container mt-5">
+                <h2>Add Syllabus</h2>
+                <form onSubmit={handleSubmit}>
+                    <div className="form-group">
+                        <label htmlFor="subjectName">Subject Name</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="subjectName"
+                            name="subjectName"
+                            value={formData.subjectName}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="grade">Grade</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="grade"
+                            name="grade"
+                            value={formData.grade}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="syllabus">Syllabus PDF</label>
+                        <input
+                            type="file"
+                            className="form-control-file"
+                            id="syllabus"
+                            name="syllabus"
+                            accept=".pdf"
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+                    <button type="submit" className="btn btn-primary">Submit</button>
+                </form>
+            </div>
         </div>
     );
 };

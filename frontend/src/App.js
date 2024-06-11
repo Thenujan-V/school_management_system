@@ -24,6 +24,8 @@ import SyllabusForm from './Components/AdminComponents/SyllabusForm'
 import ResultsForm from './Components/AdminComponents/ResultsForm'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ViewStudent from './Components/AdminComponents/ViewStudent'
+import StudentResults from './Components/AdminComponents/StudentResults'
 
 
 
@@ -65,8 +67,10 @@ const App = () => {
         {/* <Route path='/downloasview/:grade' element={<DownloadsNav />}/> */}
         <Route path='/downloasview/:grade/:subject' element={<DownloasView />}/>
         <Route path='/examtimetable/:grade/:term' element={<ExamTimeTable />}/>
-
+        
         <Route path="/register-students" element={<RegisterStudents />} />
+        <Route path="/viewStudent" element={<ViewStudent />} />
+        <Route path='/viewStudent/:index_number/results' element={<StudentResults />} />
         <Route path="/exam-calendar" element={<AddExamDate />} />
         <Route path="/exam-marks" element={<ResultsForm />} />
         <Route path="/principal-details" element={PrincipalDetails} />

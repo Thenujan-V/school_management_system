@@ -62,3 +62,14 @@ export const deleteExamSubject = async(exam_id, subject_id) => {
         throw error
     }
 }
+
+export const allStudentsDetails = async(datas) => {
+    try{
+        const response = await axios.get(`${BASE_URL_API}/admin/viewallstudents`)
+        return response
+    }
+    catch(error){
+        throw error
+    }
+}
+
