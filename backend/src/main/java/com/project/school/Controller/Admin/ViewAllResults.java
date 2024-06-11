@@ -1,5 +1,6 @@
 package com.project.school.Controller.Admin;
 
+import com.project.school.Dto.Admin.ResultDto;
 import com.project.school.Entity.ResultEntity;
 import com.project.school.Entity.StudentsEntity;
 import com.project.school.Service.interfaces.Admin.ViewAllResultsService;
@@ -18,8 +19,8 @@ public class ViewAllResults {
     @Autowired
     private ViewAllResultsService viewAllResultsService;
 
-    @GetMapping("/viewallstudents/{exam_id}")
-    private List<ResultEntity> viewAllStudents(@PathVariable ("exam_id") int exam_id) {
-        return viewAllResultsService.viewResult(exam_id);
+    @GetMapping("/viewallstudents/{grade}/{term}")
+    private List<ResultDto> viewAllStudents(@PathVariable ("grade") int grade, @PathVariable ("term") int term) {
+        return viewAllResultsService.viewResult(grade, term);
     }
 }

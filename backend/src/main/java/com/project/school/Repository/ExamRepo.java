@@ -17,4 +17,8 @@ public interface ExamRepo extends JpaRepository<ExamEntity, Integer> {
     @Modifying
     @Query("delete from ExamEntity e where e.subject_id = :subjectId")
     void deleteBySubjectId(@Param("subjectId") int subjectId);
+
+    @Query("select e.exam_id from ExamEntity e where e.subject_id = :subjectId")
+    Integer findExamIds(@Param("subjectId") Integer subjectId);
+
 }

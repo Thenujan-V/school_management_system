@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -21,7 +22,7 @@ public interface ResultRepo extends JpaRepository<ResultEntity, CompositeId> {
     @Modifying
     @Query("delete from ResultEntity r where r.id.exam_id = :examId")
     void deleteResultByexamId(@Param("examId") int examId);
+    @Query("SELECT r.id.exam_id, r.marks, r.id.student_id FROM ResultEntity r WHERE r.id.exam_id = :examId")
+    List<Object[]> findAllMarks(@Param("examId") Integer examId);
 
-    @Query("SELECT r FROM ResultEntity r WHERE r.id.exam_id = :examId")
-    List<ResultEntity> findByExamId(@Param("examId") int examId);
 }

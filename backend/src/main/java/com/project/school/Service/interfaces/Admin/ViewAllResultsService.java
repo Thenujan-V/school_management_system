@@ -1,9 +1,9 @@
 package com.project.school.Service.interfaces.Admin;
 
-import com.project.school.Entity.ResultEntity;
+import com.project.school.Dto.Admin.ResultDto;
 
 import java.util.List;
 
 public interface ViewAllResultsService {
-    List<ResultEntity> viewResult(int examId);
+    List<ResultDto> viewResult(int grade, int term);
 }
