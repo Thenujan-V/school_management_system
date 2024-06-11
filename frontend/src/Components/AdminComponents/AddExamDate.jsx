@@ -4,6 +4,7 @@ import VerticalNavbar from './VerticalNavbar';
 import { getSubjects } from '../../Services/SubjectServices';
 import { deleteExamDetail, addExamTimeTable, deleteExamSubject } from '../../Services/AdminServices';
 import { getExamTimeTable } from '../../Services/ExamServices';
+import { toast } from 'react-toastify';
 
 const AddExamDate = () => {
     const [grades, setGrades] = useState([]);
@@ -115,11 +116,12 @@ const AddExamDate = () => {
         );
         setExamDetails(updatedExamDetails);
     };
-console.log('exam D :', examDetails)
     const handleDelete = async (subjectId, examId) => {
         try {
             await deleteExamSubject(examId, subjectId);
             setExamDetails(examDetails.filter(detail => detail.subjectId !== subjectId));
+            toast.success('successfully delete exam date')
+            window.location.reload()
         } catch (error) {
             console.log('error deleting exam detail:', error);
         }
@@ -142,6 +144,10 @@ console.log('exam D :', examDetails)
                     };
                     const response = await addExamTimeTable(examDatas);
                     console.log('response:', response.data);
+                    toast.success('successfully added exam date')
+            window.location.reload()
+
+
                 } catch (error) {
                     console.log('error occur:', error);
                 }
@@ -153,7 +159,7 @@ console.log('exam D :', examDetails)
 
     return (
         <div style={{ display: 'flex' }} className='examDate'>
-            <div style={{ flex: '1' }}>
+            <div style={{ flex: '1'}}>
                 <VerticalNavbar />
             </div>
             <div className="container mt-4">
@@ -224,6 +230,7 @@ console.log('exam D :', examDetails)
                                             type="button"
                                             className="btn btn-danger"
                                             onClick={() => handleDelete(detail.subjectId, detail.examId)}
+                                            style={{width:'7vw'}}
                                         >
                                             Delete
                                         </button>

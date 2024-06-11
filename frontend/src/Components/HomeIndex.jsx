@@ -2,24 +2,27 @@ import React, { useEffect, useState } from 'react'
 import { homeIndex } from './Styles/Index'
 import { child, student, school } from './Assets/Index'
 import { Link } from 'react-router-dom'
-import { decodeToken } from '../Services/TokenServices'
+import { decodeToken, getToken } from '../Services/TokenServices'
 import { useNavigate } from 'react-router-dom';
 
 
 const HomeIndex = () => {
     const navigate = useNavigate()
-    const decodedToken = decodeToken()
+    const token = getToken()
+    const decodedToken = decodeToken(token)
     const [indexNo, setIndexNo] = useState('')
 
     useEffect(() => {
         if(decodedToken){
-            const studentId = decodedToken.id
+            const studentId = decodedToken.indexNo
             setIndexNo(studentId)
         }
         else{
             setIndexNo('')
         }
     }, [decodedToken])
+
+    console.log('ins :', decodedToken)
   return (
     <>
     <div id="carousel" classNameName="carousel slide carousel-fade" data-bs-ride="carousel">

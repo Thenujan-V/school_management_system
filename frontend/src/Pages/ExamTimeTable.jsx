@@ -3,7 +3,7 @@ import Navbar from '../Components/Navbar'
 import ExamTimeVerticalNav from '../Components/ExamTimeVerticalNav'
 import ViewExamTimes from '../Components/ViewExamTimes'
 import { useNavigate, useParams } from 'react-router-dom'
-import { decodeToken } from '../Services/TokenServices'
+import { decodeToken, getToken } from '../Services/TokenServices'
 
 
 const ExamTimeTable = () => {
@@ -12,12 +12,13 @@ const ExamTimeTable = () => {
     const term = params.term
 
     const navigate = useNavigate()
-    const decodedToken = decodeToken()
+    const token = getToken()
+    const decodedToken = decodeToken(token)
     const [indexNo, setIndexNo] = useState('')
 
     useEffect(() => {
         if(decodedToken){
-            const studentId = decodedToken.id
+            const studentId = decodedToken.indexNo
             setIndexNo(studentId)
         }
         else{

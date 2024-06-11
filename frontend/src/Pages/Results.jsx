@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../Components/Navbar'
 import ResultTable from '../Components/ResultTable'
-import { decodeToken } from '../Services/TokenServices'
+import { decodeToken, getToken } from '../Services/TokenServices'
 import { useNavigate } from 'react-router-dom'
 
 const Results = () => {
     const navigate = useNavigate()
-    const decodedToken = decodeToken()
+    const token = getToken()
+    const decodedToken = decodeToken(token)
     const [index_no, setIndex_no] = useState('')
 
     useEffect(() => {
         if(decodedToken){
-            const studentId = decodedToken.id
+            const studentId = decodedToken.indexNo
             setIndexNo(studentId)
         }
         else{
@@ -67,15 +68,21 @@ const Results = () => {
                             <p>{errors.indexNo}</p>
                     </div>
                     <div className='form-group'>
-                        <label htmlFor="index">Term</label>
-                        <input 
-                            type="text" 
+                        <label htmlFor="term">Term</label>
+                        <select 
                             id='term' 
                             name='term'
-                            value={term}
-                            onChange={(e) => setTerm(e.target.value)}/>
-                            <p>{errors.term}</p>
-                    </div>
+                            value={term}                        
+                            onChange={(e) => setTerm(e.target.value)}
+                            style={{width:'15vw', height:'5vh', borderRadius:'5px'}}
+                            >
+                            <option value="">Select Term</option>
+                            <option value="1">First Term</option>
+                            <option value="2">Second Term</option>
+                            <option value="3">Third Term</option>
+                        </select>
+                        <p>{errors.term}</p>
+                    </div>  
                     <button type='submit'>Submit</button>
                 </form>
             </div>

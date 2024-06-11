@@ -22,6 +22,9 @@ import RegisterStudents from './Components/AdminComponents/RegisterStudents'
 import AddExamDate from './Components/AdminComponents/AddExamDate'
 import SyllabusForm from './Components/AdminComponents/SyllabusForm'
 import ResultsForm from './Components/AdminComponents/ResultsForm'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 const ExamMarks = () => <div>Exam Marks Page</div>;
@@ -29,8 +32,21 @@ const PrincipalDetails = () => <div>Principal Details Page</div>;
 const SyllabusPastPapers = () => <div>Syllabus & Past Papers Page</div>;
 
 const App = () => {
+  const notify = () => {
+    toast.success("Success Notification!", {
+      position: toast.POSITION.TOP_RIGHT,
+      autoClose: 5000,
+    });
+
+    toast.error("Error Notification!", {
+      position: toast.POSITION.BOTTOM_LEFT,
+      autoClose: false,
+    });
+  };
   return (
     <>
+      {/* <button onClick={notify}>Show Notifications</button> */}
+      <ToastContainer />
       <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='/downloads' element={<Downloads />}/>

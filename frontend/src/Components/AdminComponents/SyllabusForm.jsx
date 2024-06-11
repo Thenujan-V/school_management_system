@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { syllabusForm } from '../Styles/Index';
 import VerticalNavbar from './VerticalNavbar';
 import { addSyllabus } from '../../Services/AdminServices';
+import { toast } from 'react-toastify';
 
 const SyllabusForm = () => {
     const [formData, setFormData] = useState({
@@ -18,6 +19,14 @@ const SyllabusForm = () => {
             [name]: files ? files[0] : value
         }));
     };
+    
+    const handleClear = () => {
+        setFormData({
+            subjectName : '',
+            grade: '',
+            syllabus: null
+         })
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -29,6 +38,8 @@ const SyllabusForm = () => {
         try{
             const response = await addSyllabus(data)
             console.log('successfully added')
+            toast.success('successfully added')
+            handleClear()
         }
         catch(error){
             console.log('error occur:',error )

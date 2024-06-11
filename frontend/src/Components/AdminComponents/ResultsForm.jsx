@@ -4,6 +4,7 @@ import { resultsForm } from '../Styles/Index';
 import VerticalNavbar from './VerticalNavbar';
 import { addResult, studentDetails } from '../../Services/AdminServices';
 import { getExamTimeTable } from '../../Services/ExamServices';
+import { toast } from 'react-toastify';
 
 const ResultsForm = () => {
     const [grade, setGrade] = useState('');
@@ -14,9 +15,10 @@ const ResultsForm = () => {
     const [showForm, setShowForm] = useState(false);
 
     const parseSubjectData = (data) => {
-        const [grade, term, subject, exam_id, date, time, hall] = data.split(',');
+        const [subjectId, grade, term, subject, exam_id, date, time, hall] = data.split(',');
 
         return {
+            subjectId,
             grade,
             term,
             subject,
@@ -66,7 +68,7 @@ const ResultsForm = () => {
         try {
             const promises = marks.map(mark => addResult(mark));
             await Promise.all(promises);
-            alert('All marks submitted successfully');
+            toast.success('All marks submitted successfully');
             handleClear()
 
         } catch (error) {
@@ -126,7 +128,8 @@ const ResultsForm = () => {
                                     <tr>
                                         <th>Student Index No</th>
                                         {subjects.map(subject => (
-                                            <th key={subject.exam_id}>{subject.subject}</th>
+                                            <th key={subject.exam_id}>{subject.subject}
+                                            {console.log('sss :',subject)}</th>
                                         ))}
                                     </tr>
                                 </thead>
