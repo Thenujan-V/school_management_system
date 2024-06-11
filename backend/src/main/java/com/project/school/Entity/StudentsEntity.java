@@ -20,6 +20,7 @@ public class StudentsEntity {
     private String first_phone_number;
     private String second_phone_number;
     private int grade;
+    private String role;
     @Column(nullable = false, updatable = false)
     @CreationTimestamp
     private String created_date;

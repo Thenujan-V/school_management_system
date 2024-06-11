@@ -27,9 +27,9 @@ const VerticalNavbar = () => {
                         <li className="nav-item">
                             <Link className="nav-link" to="/showallstudentsallresults">Show Results</Link>
                         </li>
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <Link className="nav-link" to="/addsubjects">Add Subjects</Link>
-                        </li>
+                        </li> */}
                         <li className="nav-item">
                             <Link className="nav-link" to="/syllabus-add">Syllabus & Past Papers</Link>
                         </li>
