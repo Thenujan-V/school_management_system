@@ -13,3 +13,12 @@ export const decodeToken = (token) => {
         return null;
     }
 };
+
+export const logout = () => {
+    try{
+        localStorage.removeItem("token")
+    }
+    catch(error){
+        throw error
+    }
+}

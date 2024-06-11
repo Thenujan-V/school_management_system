@@ -22,7 +22,6 @@ const HomeIndex = () => {
         }
     }, [decodedToken])
 
-    console.log('ins :', decodedToken)
   return (
     <>
     <div id="carousel" classNameName="carousel slide carousel-fade" data-bs-ride="carousel">

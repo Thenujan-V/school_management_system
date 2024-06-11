@@ -1,8 +1,45 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { verticalNavbar } from '../Styles/Index';
+import { decodeToken, getToken, logout } from '../../Services/TokenServices';
 
 const VerticalNavbar = () => {
+
+    const navigate = useNavigate()
+
+    const token = getToken()
+    const decodedToken = decodeToken(token)
+
+    const [role, setRole] = useState('')
+    useEffect(() => {
+        if(decodedToken){
+            const userRole = decodedToken.role
+            setRole(userRole)
+        }
+        else{
+            navigate("/")
+        }
+    }, [decodedToken])
+
+    
+    useEffect(() => {
+        const pageAuthorization = (role) => {
+            if(role === 'user'){
+                navigate("/")
+            }
+            
+        }
+        pageAuthorization(role)
+    }, [role])
+
+    const handleLogout = async() => {
+        try{
+           logout()
+        }
+        catch(error){
+            console.log('error :', error)
+        }
+    }
     return (
         <div className="d-flex">
             <nav className="navbar verticalNavbar navbar-expand-lg flex-column align-items-start p-3">
@@ -12,26 +49,29 @@ const VerticalNavbar = () => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav flex-column">
-                        <li className="nav-item">
+                        { role && role === 'admin' && <li className="nav-item">
                             <Link className="nav-link" to="/register-students">Register Students</Link>
-                        </li>
-                        <li className="nav-item">
+                        </li>}
+                        {role && role === 'admin' && <li className="nav-item">
                             <Link className="nav-link" to="/viewStudent">View Students</Link>
-                        </li>
-                        <li className="nav-item">
+                        </li>}
+                        {role && role === 'admin' && <li className="nav-item">
                             <Link className="nav-link" to="/exam-calendar">Exam Calendar</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/exam-marks">Exam Marks</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/showallstudentsallresults">Show Results</Link>
-                        </li>
+                        </li>}
+                        {role && role === 'admin' && <li className="nav-item">
+                            <Link className="nav-link" to="/exam-marks">Exam Marks Issue</Link>
+                        </li>}
+                        {role && role === 'teacher' && <li className="nav-item">
+                            <Link className="nav-link" to="/showallstudentsallresults">Show Marks</Link>
+                        </li>}
                         {/* <li className="nav-item">
                             <Link className="nav-link" to="/addsubjects">Add Subjects</Link>
                         </li> */}
-                        <li className="nav-item">
+                        {role && role === 'admin' && <li className="nav-item">
                             <Link className="nav-link" to="/syllabus-add">Syllabus & Past Papers</Link>
+                        </li>}
+                        <li className="nav-item">
+                            <Link className="nav-link" onClick={handleLogout}>Logout</Link>
                         </li>
                     </ul>
                 </div>

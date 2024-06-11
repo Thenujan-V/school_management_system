@@ -1,11 +1,15 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { signin } from './Styles/Index';
 import axios from 'axios'    
 import { signinStudents } from '../Services/StudentsServices';
 import { toast } from 'react-toastify';
+import { decodeToken } from '../Services/TokenServices';
+import { useNavigate } from 'react-router-dom';
 
 
 const Signin = () => {
+    
+
     const [formData, setFormData] = useState({
         index_number: '',
         password: ''
@@ -38,6 +42,10 @@ const Signin = () => {
         return Object.keys(newErrors).length === 0;
     };
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
+      
     const handleSubmit = async (e) => {
         e.preventDefault();
         
@@ -52,6 +60,8 @@ const Signin = () => {
                 }
                 else{
                     toast.success('your login success')
+                    window.location.reload()
+                    // window.scrollTo(0, 0); 
                 }
                 
             }

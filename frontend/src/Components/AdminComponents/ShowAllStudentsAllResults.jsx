@@ -56,6 +56,7 @@ const ShowAllStudentsAllResults = () => {
       console.log('error occurred:', error);
     }
   };
+console.log("subject :",subjects)
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -1,8 +1,40 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { navbar } from './Styles/Index'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { decodeToken, getToken } from '../Services/TokenServices'
 
 const Navbar = () => {
+    // const navigate = useNavigate()
+
+    // const token = getToken()
+    // const decodedToken = decodeToken(token)
+
+    // const [role, setRole] = useState('')
+    // useEffect(() => {
+    //     if(decodedToken){
+    //         const userRole = decodedToken.role
+    //         setRole(userRole)
+    //     }
+    // }, [decodedToken])
+
+    
+    // useEffect(() => {
+    //     const pageAuthorization = (role) => {
+    //         if(role === 'user'){
+    //             navigate("/")
+    //         }
+    //         else if(role === 'admin'){
+    //             navigate("/adminpanel")
+    //         }
+    //         else if(role === 'teacher'){
+    //             navigate("/")
+    //         }
+    //     }
+    //     pageAuthorization(role)
+    // }, [role])
+    // console.log('ins :', decodedToken)
+
+    // console.log('role :', role)
   return (
     <>
     <nav class="navbar navbar-expand-lg">
