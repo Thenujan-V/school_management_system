@@ -21,4 +21,7 @@ public interface ResultRepo extends JpaRepository<ResultEntity, CompositeId> {
     @Modifying
     @Query("delete from ResultEntity r where r.id.exam_id = :examId")
     void deleteResultByexamId(@Param("examId") int examId);
+
+    @Query("SELECT r FROM ResultEntity r WHERE r.id.exam_id = :examId")
+    List<ResultEntity> findByExamId(@Param("examId") int examId);
 }
