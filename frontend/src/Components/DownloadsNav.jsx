@@ -22,7 +22,7 @@ const DownloadsNav = ({grade}) => {
     },[])
     
     const redirectPage = (grade, sub) => {
-        console.log(sub)
+        console.log('subt :',sub)
         navigater(`/downloasview/${grade}/${sub}`)
     }
 
@@ -33,7 +33,7 @@ const DownloadsNav = ({grade}) => {
             subjects && subjects.length > 0 && subjects.map((subject) => (
                 <div className="links">
                     {/* <Link to={`/downloasview/${grade}/${subject}`} className='link'>{subject}</Link> */}
-                    <Link onClick={() => redirectPage(grade, subject)} className='link'>{subject}</Link>
+                    <button onClick={() => redirectPage(grade, subject)} className='link'>{subject}</button>
                 </div>
             ))
         }

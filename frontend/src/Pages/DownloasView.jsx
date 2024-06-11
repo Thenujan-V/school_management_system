@@ -15,8 +15,6 @@ const DownloasView = () => {
             setSubject(params.subject)
         }
     }, [params])
-    console.log('sub :' , subject)
-
   return (
     <div>
         <Navbar />
@@ -26,7 +24,7 @@ const DownloasView = () => {
                 // subject = {subject}
             />
             {
-                subject !== '' ? 
+                subject !== 'sub' ? 
                 <ViewNotes 
                 grade = {grade}
                 subject = {subject}

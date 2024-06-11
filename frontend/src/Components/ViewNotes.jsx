@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { getSubjectNotes } from '../Services/SyllabusServices';
 
 const ViewNotes = ({ grade, subject }) => {
+console.log('ooooo :', subject)
+
     const [pdfUrl, setPdfUrl] = useState('');
 
     useEffect(() => {

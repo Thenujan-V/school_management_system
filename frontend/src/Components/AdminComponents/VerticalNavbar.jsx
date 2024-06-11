@@ -15,6 +15,10 @@ const VerticalNavbar = () => {
         if(decodedToken){
             const userRole = decodedToken.role
             setRole(userRole)
+
+            if(userRole === 'user'){
+                navigate("/")
+            }
         }
         else{
             navigate("/")
