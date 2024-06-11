@@ -73,3 +73,14 @@ export const allStudentsDetails = async(datas) => {
     }
 }
 
+
+export const allStudentsAllMarks = async(grade, term) => {
+    try{
+        const response = await axios.get(`${BASE_URL_API}/admin/viewallstudents/${grade}/${term}`)
+        console.log('res :', grade, term)
+        return response
+    }
+    catch(error){
+        throw error
+    }
+}

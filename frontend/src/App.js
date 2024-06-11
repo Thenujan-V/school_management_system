@@ -26,6 +26,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ViewStudent from './Components/AdminComponents/ViewStudent'
 import StudentResults from './Components/AdminComponents/StudentResults'
+import ShowAllStudentsAllResults from './Components/AdminComponents/ShowAllStudentsAllResults'
 
 
 
@@ -70,6 +71,7 @@ const App = () => {
         
         <Route path="/register-students" element={<RegisterStudents />} />
         <Route path="/viewStudent" element={<ViewStudent />} />
+        <Route path="/showallstudentsallresults" element={<ShowAllStudentsAllResults />} />
         <Route path='/viewStudent/:index_number/results' element={<StudentResults />} />
         <Route path="/exam-calendar" element={<AddExamDate />} />
         <Route path="/exam-marks" element={<ResultsForm />} />
