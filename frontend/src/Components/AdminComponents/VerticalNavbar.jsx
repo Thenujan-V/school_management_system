@@ -45,9 +45,9 @@ const VerticalNavbar = () => {
         }
     }
     return (
-        <div className="d-flex">
+        <div className="d-flex" style={{minHeight:'100%'}}>
             <nav className="navbar verticalNavbar navbar-expand-lg flex-column align-items-start p-3">
-                <Link className="navbar-brand" to="/">Admin Panel</Link>
+                <h1 className="navbar-brand">Admin Panel</h1>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -65,7 +65,7 @@ const VerticalNavbar = () => {
                         {role && role === 'admin' && <li className="nav-item">
                             <Link className="nav-link" to="/exam-marks">Exam Marks Issue</Link>
                         </li>}
-                        {role && role === 'teacher' && <li className="nav-item">
+                        {role && (role === 'teacher' || role === 'admin') && <li className="nav-item">
                             <Link className="nav-link" to="/showallstudentsallresults">Show Marks</Link>
                         </li>}
                         {/* <li className="nav-item">

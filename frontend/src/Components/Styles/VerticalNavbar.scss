@@ -1,8 +1,21 @@
 .verticalNavbar {
     min-height: 100vh;
-    width: 250px; 
+    width: 300px; 
     background-color:var(--blue); 
 
+    .navbar-brand{
+        font-size: 35px;
+        font-weight: 800;
+        font-style: italic;
+        color: var(--yellow);
+        margin-top: 2vh;
+        text-align: center;
+        width: 250px;
+        text-decoration: none;
+    }
+    .navbar-brand:hover{
+        color: var(--yellow);
+    }
     .navbar-nav {
         width: 100%; 
     }
@@ -11,6 +24,22 @@
         color: #007bff; 
         &:hover {
             color: #0056b3; 
+        }
+    }
+    #navbarNav{
+        display: flex;
+        justify-content: start;
+        align-items: start;
+        margin-top: 10vh;
+
+        li{
+            font-size: 20px;
+            font-weight: 600;
+            font-style: italic;
+            border-bottom: 2px solid #007bff;
+            border-radius: 6px;
+            margin-bottom: 3vh;
+
         }
     }
 }
