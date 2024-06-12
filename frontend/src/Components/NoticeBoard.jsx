@@ -1,7 +1,5 @@
 import React from 'react'
 import { noticeBoard } from './Styles/Index'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faGlide } from '@fortawesome/free-solid-svg-icons';
 import Button from '@mui/material/Button';
 import LanguageIcon from '@mui/icons-material/Language';
 import BookIcon from '@mui/icons-material/MenuBook';

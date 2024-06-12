@@ -94,3 +94,14 @@ export const addSubjects = async(data) => {
         throw error
     }
 }
+
+
+export const studentDetailsIndexNo = async(indexNo) => {
+    try{
+        const response = await axios.get(`${BASE_URL_API}/admin/viewstudentsindexNowish/${indexNo}`)
+        return response
+    }
+    catch(error){
+        throw error
+    }
+}

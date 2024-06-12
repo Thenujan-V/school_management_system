@@ -22,8 +22,10 @@ import addExamDate from './AddExamDate.scss'
 import syllabusForm from './SyllabusForm.scss'
 import resultsForm from './ResultsForm.scss'
 import viewStudent from './ViewStudent.scss'
+import userProfile from './UserProfile.scss'
+
 
 export {navbar, global, homeIndex, homeAbout, noticeBoard, homeNews, map, signin, downloads, result, resultTable, history,
      rules, principal, contact, news, syllabusPage, viewExamTimes, verticalNavbar, registerStudents, addExamDate, syllabusForm,
-     resultsForm, viewStudent
+     resultsForm, viewStudent, userProfile
 }

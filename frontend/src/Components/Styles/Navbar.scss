@@ -8,12 +8,19 @@
     letter-spacing: 2px;
     
     #navbarNavDropdown{
+        display: flex;
         justify-content: center;
         text-align: center;
 
         .nav-link{
         color: var(--white) !important;
         padding: 25px;
+    }
+    .navbar-nav{
+        .userNavItem{
+            justify-self: end;
+            // padding-left: 20vw;
+        }
     }
     .dropdown-menu{
         // background-color: var(--blue);

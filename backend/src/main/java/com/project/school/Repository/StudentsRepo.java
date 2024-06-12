@@ -15,4 +15,6 @@ public interface StudentsRepo extends JpaRepository<StudentsEntity, Long> {
     Optional<StudentsEntity> findByIndexNo(@Param("indexNo") String indexNo);
 
     List<StudentsEntity> findByGrade(int grade);
+
+
 }

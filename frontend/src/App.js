@@ -28,6 +28,8 @@ import ViewStudent from './Components/AdminComponents/ViewStudent'
 import StudentResults from './Components/AdminComponents/StudentResults'
 import ShowAllStudentsAllResults from './Components/AdminComponents/ShowAllStudentsAllResults'
 import AddSubjects from './Components/AdminComponents/AddSubjects'
+import UserProfile from './Components/UserProfile'
+import User from './Pages/User'
 
 
 
@@ -66,6 +68,7 @@ const App = () => {
         <Route path='/news' element={<News />}/>
         <Route path='/contact' element={<Contact />}/>
         <Route path='/syllabus' element={<Syllabus />}/>
+        <Route path='/userprofile' element={<User />}/>
         {/* <Route path='/downloasview/:grade' element={<DownloadsNav />}/> */}
         <Route path='/downloasview/:grade/:subject' element={<DownloasView />}/>
         <Route path='/examtimetable/:grade/:term' element={<ExamTimeTable />}/>

@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin("*")
 @RestController
@@ -23,6 +24,11 @@ public class ViewStudentsDetailsController {
     @GetMapping("/viewstudentsgradewish/{grade}")
     private List<StudentsEntity> viewStudents(@PathVariable("grade") int grade){
         return viewStudentsDetails.viewStudent(grade);
+    }
+
+    @GetMapping("/viewstudentsindexNowish/{indexNo}")
+    private Optional<StudentsEntity> viewStudent(@PathVariable("indexNo") String indexNo){
+        return viewStudentsDetails.viewStudentDetails(indexNo);
     }
 }
 

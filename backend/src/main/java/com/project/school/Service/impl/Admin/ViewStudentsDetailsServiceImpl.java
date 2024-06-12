@@ -8,6 +8,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ViewStudentsDetailsServiceImpl implements ViewStudentsDetails {
@@ -21,5 +22,10 @@ public class ViewStudentsDetailsServiceImpl implements ViewStudentsDetails {
     @Override
     public List<StudentsEntity> viewStudent(int grade) {
         return studentsRepo.findByGrade(grade);
+    }
+
+    @Override
+    public Optional<StudentsEntity> viewStudentDetails(String indexNo) {
+        return studentsRepo.findByIndexNo(String.valueOf(indexNo));
     }
 }
