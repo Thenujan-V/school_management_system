@@ -41,7 +41,6 @@ const Navbar = () => {
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <li><Link class="dropdown-item" to="/abouthistorybody">History</Link></li>
                         <li><Link class="dropdown-item" to='/rules'>Rules&Regutations</Link></li>
-                        <li><Link class="dropdown-item" href="#">Identity</Link></li>
                     </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -51,7 +50,6 @@ const Navbar = () => {
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <li><Link class="dropdown-item" to='/principal'>Principle</Link></li>
                         <li><Link class="dropdown-item" to='/deputyprincipal'>Deputy Principles</Link></li>
-                        <li><Link class="dropdown-item" to='/teacher'>Teachers</Link></li>
                     </ul>
                     </li>
                     <li class="nav-item">

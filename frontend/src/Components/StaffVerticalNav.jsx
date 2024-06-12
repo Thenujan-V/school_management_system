@@ -9,7 +9,6 @@ const StaffVerticalNav = () => {
         <div className="links">
             <Link to='/principal' className='link'>Principal</Link>
             <Link to='/deputyprincipal' className='link'>Deputy Principal</Link>
-            <Link to='/teachers' className='link'>Teachers</Link>
         </div>
     </div>
   )

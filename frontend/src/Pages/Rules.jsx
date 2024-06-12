@@ -3,11 +3,13 @@ import Navbar from '../Components/Navbar'
 import { rules } from '../Components/Styles/Index'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faGraduationCap } from '@fortawesome/free-solid-svg-icons';
+import TopBar from '../Components/TopBar';
 
 
 const Rules = () => {
   return (
     <div>
+        <TopBar />
         <Navbar />
         <div className='rulesFirst'>
             <p>RULES AND REGULATIONS OF OUR SCHOOL</p>

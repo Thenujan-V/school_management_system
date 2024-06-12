@@ -3,6 +3,7 @@ import Navbar from '../Components/Navbar'
 import UserProfile from '../Components/UserProfile'
 import { useNavigate } from 'react-router-dom'
 import { decodeToken, getToken } from '../Services/TokenServices'
+import TopBar from '../Components/TopBar'
 
 const User = () => {
     const navigate = useNavigate()
@@ -23,6 +24,7 @@ const User = () => {
 
   return (
     <div>
+        <TopBar />
         <Navbar />
         <UserProfile />
     </div>

@@ -1,0 +1,15 @@
+.topbar{
+    background-color: var(--yellow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p{
+        font-family: 'Libre Baskerville', serif;
+        padding-left: 15px;
+        margin-top: 6px;
+        font-size: 20px;
+        font-weight: bold;
+        color: var(--blue);
+    }
+}

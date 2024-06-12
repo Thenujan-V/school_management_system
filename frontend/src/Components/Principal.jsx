@@ -3,10 +3,12 @@ import Navbar from './Navbar'
 import StaffFirst from './StaffFirst'
 import StaffVerticalNav from './StaffVerticalNav'
 import { bari } from './Assets/Index'
+import TopBar from './TopBar'
 
 const Principal = () => {
   return (
     <div>
+        <TopBar />
         <Navbar />
         <StaffFirst />
         <div className='container-fluid' style={{display:'flex'}}>

@@ -4,6 +4,7 @@ import HistoryFrist from './HistoryFrist'
 import Navbar from './Navbar'
 import { bari } from './Assets/Index'
 import { getPrincipalsDetails } from '../Services/PrincipalService'
+import TopBar from './TopBar'
 
 const AboutPrincipals = () => {
 
@@ -23,6 +24,7 @@ const AboutPrincipals = () => {
     }, [])
   return (
     <>
+        <TopBar />
         <Navbar />
         <HistoryFrist />
         <div className='container-fluid' style={{display:'flex'}}>

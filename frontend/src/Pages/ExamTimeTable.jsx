@@ -4,6 +4,7 @@ import ExamTimeVerticalNav from '../Components/ExamTimeVerticalNav'
 import ViewExamTimes from '../Components/ViewExamTimes'
 import { useNavigate, useParams } from 'react-router-dom'
 import { decodeToken, getToken } from '../Services/TokenServices'
+import TopBar from '../Components/TopBar'
 
 
 const ExamTimeTable = () => {
@@ -28,6 +29,7 @@ const ExamTimeTable = () => {
 
   return (
     <div>
+        <TopBar />
         <Navbar />
         <div style={{display:'flex'}}>
             <ExamTimeVerticalNav 

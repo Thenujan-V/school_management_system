@@ -3,10 +3,12 @@ import AboutVerticalNav from './AboutVerticalNav'
 import { oldSchool } from './Assets/Index'
 import Navbar from './Navbar'
 import HistoryFrist from './HistoryFrist'
+import TopBar from './TopBar'
 
 const AboutBody = () => {
   return (
     <>
+        <TopBar />
         <Navbar />
         <HistoryFrist />
     <div className='container-fluid' style={{display:'flex'}}>

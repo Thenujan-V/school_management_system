@@ -8,6 +8,7 @@ import Map from '../Components/Map'
 import Signin from '../Components/Signin'
 import { useNavigate } from 'react-router-dom'
 import { decodeToken, getToken } from '../Services/TokenServices'
+import TopBar from '../Components/TopBar'
 
 const Home = () => {
   const navigate = useNavigate()
@@ -40,6 +41,7 @@ const Home = () => {
     }, [role])
   return (
     <>
+        <TopBar />
         <Navbar />
         <HomeIndex />
         <HomeAbout />

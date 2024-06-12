@@ -3,6 +3,7 @@ import Navbar from '../Components/Navbar'
 import ResultTable from '../Components/ResultTable'
 import { decodeToken, getToken } from '../Services/TokenServices'
 import { useNavigate } from 'react-router-dom'
+import TopBar from '../Components/TopBar'
 
 const Results = () => {
     const navigate = useNavigate()
@@ -52,6 +53,7 @@ const Results = () => {
 
   return (
     <>
+        <TopBar />
         <Navbar />
         <div className="container results-input">
             <h2>Your Results</h2>

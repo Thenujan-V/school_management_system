@@ -4,10 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileLines } from '@fortawesome/free-solid-svg-icons';
 import { downloads } from '../Components/Styles/Index';
 import { Link } from 'react-router-dom';
+import TopBar from '../Components/TopBar';
 
 const Downloads = () => {
   return (
     <>
+        <TopBar />
         <Navbar />
         <div className='container' id='downloads'>
             <h1>syllabus Meterials</h1>

@@ -7,7 +7,8 @@ import oldSchool from './oldschool.jpeg'
 import founder from './founder.jpeg'
 import bari from './Bari_Sir.jpeg'
 import rules from './rules.png'
+import logo from './lohoSchool.png'
 
 
 
-export {student, child, school, principle, history, oldSchool, founder, bari, rules}
+export {student, child, school, principle, history, oldSchool, founder, bari, rules, logo}

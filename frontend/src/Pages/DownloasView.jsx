@@ -4,6 +4,7 @@ import DownloadsNav from '../Components/DownloadsNav'
 import { useNavigate, useParams } from 'react-router-dom'
 import ViewNotes from '../Components/ViewNotes'
 import { faDisplay } from '@fortawesome/free-solid-svg-icons'
+import TopBar from '../Components/TopBar'
 
 const DownloasView = () => {
     const params = useParams()
@@ -17,6 +18,7 @@ const DownloasView = () => {
     }, [params])
   return (
     <div>
+        <TopBar />
         <Navbar />
         <div style={{display:'flex'}}>
             <DownloadsNav 
