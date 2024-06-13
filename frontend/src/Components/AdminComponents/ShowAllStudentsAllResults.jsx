@@ -6,7 +6,6 @@ import VerticalNavbar from './VerticalNavbar';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import './ShowAllStudentsAllResults.scss';
 
-
 const ShowAllStudentsAllResults = () => {
   const [grade, setGrade] = useState('');
   const [term, setTerm] = useState('');
@@ -56,7 +55,6 @@ const ShowAllStudentsAllResults = () => {
       console.log('error occurred:', error);
     }
   };
-console.log("subject :",subjects)
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -72,32 +70,43 @@ console.log("subject :",subjects)
   }, {});
 
   return (
-    <div style={{display:'flex'}}>
-        <div style={{flex:'1'}}>
-            <VerticalNavbar />
-        </div>
+    <div style={{ display: 'flex' }}>
+      <div style={{ flex: '1' }}>
+        <VerticalNavbar />
+      </div>
       <div className="container p-4">
         <form onSubmit={handleSubmit} className="mb-4">
           <div className="mb-3">
             <label className="form-label">
               Grade:
-              <input
-                type="text"
+              <select
                 className="form-control"
                 value={grade}
                 onChange={(e) => setGrade(e.target.value)}
-              />
+              >
+                <option value="">Select Grade</option>
+                <option value="6">Grade 6</option>
+                <option value="7">Grade 7</option>
+                <option value="8">Grade 8</option>
+                <option value="9">Grade 9</option>
+                <option value="10">Grade 10</option>
+                <option value="11">Grade 11</option>
+              </select>
             </label>
           </div>
           <div className="mb-3">
             <label className="form-label">
               Term:
-              <input
-                type="text"
+              <select
                 className="form-control"
                 value={term}
                 onChange={(e) => setTerm(e.target.value)}
-              />
+              >
+                <option value="">Select Term</option>
+                <option value="1">First Term</option>
+                <option value="2">Second Term</option>
+                <option value="3">Third Term</option>
+              </select>
             </label>
           </div>
           <button type="submit" className="btn btn-primary">Fetch Results</button>
@@ -114,6 +123,7 @@ console.log("subject :",subjects)
           </thead>
           <tbody>
             {Object.keys(filteredStudents).map((studentId) => (
+              students[studentId].active === true &&
               <tr key={studentId}>
                 <td>{students[studentId].index_number}</td>
                 {Object.keys(subjects).map((examId) => (

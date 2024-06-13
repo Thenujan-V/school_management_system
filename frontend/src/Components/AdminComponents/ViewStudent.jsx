@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import VerticalNavbar from './VerticalNavbar';
-import { allStudentsDetails } from '../../Services/AdminServices'; // Adjust the import path according to your project structure
+import { allStudentsDetails, deleteStudents } from '../../Services/AdminServices'; // Adjust the import path according to your project structure
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Ensure Bootstrap CSS is included
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { toast } from 'react-toastify';
 
 const ViewStudent = () => {
   const [students, setStudents] = useState([]);
@@ -33,6 +34,18 @@ const ViewStudent = () => {
       student.index_number.toLowerCase().includes(searchQuery.toLowerCase()) ||
       student.first_name.toLowerCase().includes(searchQuery.toLowerCase())
   );
+
+  const handleDelete = async(indexNo) => {
+    try{
+      const response = await deleteStudents(indexNo)
+      if(response.data === 'deleted'){
+        toast.success('deleted student')
+      } 
+    }
+    catch(error){
+      console.log('error :', error)
+    }
+  }
 
   return (
     <div style={{ display: 'flex' }} className='viewStudent'>
@@ -67,6 +80,7 @@ const ViewStudent = () => {
               <th>Second Phone Number</th>
               <th>Grade</th>
               <th>Actions</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -83,6 +97,11 @@ const ViewStudent = () => {
                   <Link to={`/viewStudent/${student.index_number}/results`} className="btn btn-primary">
                     View Results
                   </Link>
+                </td>
+                <td>
+                  {student.active === true ? <button onClick={() => handleDelete(student.index_number)} className="btn btn-danger">
+                    Delete
+                  </button> : <p style={{color:'red'}}>Deleted</p>}
                 </td>
               </tr>
             ))}

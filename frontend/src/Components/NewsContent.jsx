@@ -1,11 +1,12 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { getEvents } from '../Services/StudentsServices';
 
 export const NewsContent = () => {
     const [news, setNews] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState('All');
 
-    const categories = ['All', 'Academic News', 'Sport News', 'Announcement'];
+    const categories = ['All', 'academic', 'sports', 'achievements', 'festival', 'celebrations', 'sportsmeet'];
 
     const handleCategoryChange = (category) => {
       setSelectedCategory(category);
@@ -15,63 +16,34 @@ export const NewsContent = () => {
       ? news
       : news.filter(item => item.category === selectedCategory);
 
-
-    const newses = [
-        {
-            id: 1,
-            title: "Children's Day A/L Section",
-            description: "International Children's Day was celebrated today in our school with great fanfare. Among the high-class activities were...",
-            image: 'https://media.npr.org/assets/img/2016/10/24/gettyimages-492378344-189a27a578d77ae118bb5f9c3e8e38111afe5971.jpg',
-            date: '22 May 2024',
-            category: 'Academic News'
-          },
-          {
-            id: 2,
-            title: "Children's Day Celebration 10 to 11 Section",
-            description: "International Children's Day was celebrated today in our school with great fanfare. It includes Class 10/11 Division...",
-            image: 'https://media.npr.org/assets/img/2016/10/24/gettyimages-492378344-189a27a578d77ae118bb5f9c3e8e38111afe5971.jpg',
-            date: '22 May 2024',
-            category: 'Academic News'
-          },
-          {
-            id: 3,
-            title: "National Milad Day Celebration",
-            description: "National Miladun Nabi Festival 2023 today based on the circular of the Ministry of Education, the principal of our...",
-            image: 'https://media.npr.org/assets/img/2016/10/24/gettyimages-492378344-189a27a578d77ae118bb5f9c3e8e38111afe5971.jpg',
-            date: '22 May 2024',
-            category: 'Announcement'
-          },
-          {
-            id: 4,
-            title: "National Level 1st Place in Maths Quiz",
-            description: "Our school achieved the first place in the national level math quiz competition. This event showcased...",
-            image: 'https://media.npr.org/assets/img/2016/10/24/gettyimages-492378344-189a27a578d77ae118bb5f9c3e8e38111afe5971.jpg',
-            date: '22 May 2024',
-            category: 'Sport News'
-          },
-      ];
-
   useEffect(() => {
-    setNews(newses)
-    // axios.get('/api/news')
-    //   .then(response => setNews(response.data))
-    //   .catch(error => console.error('Error fetching news:', error));
+    const fetchEvents = async() => {
+      try{
+        const response = await getEvents()
+        setNews(response.data)
+      }
+      catch(error){
+        console.log('error :', error)
+      }
+    }
+    fetchEvents()
   }, []);
-
+console.log('data :', news)
   return (
      <div className="container news-page">
       <div className="row">
         <div className="col-md-9">
           <h2 className="news-header">NEWS</h2>
           {filteredNews.map((item) => (
-            <div className="news-item card mb-3" key={item.id}>
+            <div className="news-item card mb-3" key={item.event_id}>
               <div className="row no-gutters">
                 <div className="col-md-4">
-                  <img src={item.image} className="card-img" alt={item.title} />
+                <img src={item.photo_url} className="card-img" alt={item.event_name} />
                 </div>
                 <div className="col-md-8">
                   <div className="card-body">
-                    <h5 className="card-title">{item.title}</h5>
+                    <h5 className="card-title">{item.event_name}</h5>
+                    <h5 className="card-title">{item.event_date}</h5>
                     <p className="card-text">{item.description}</p>
                   </div>
                 </div>
@@ -84,10 +56,10 @@ export const NewsContent = () => {
             <h3>Latest News</h3>
             <ul className="list-group">
               {news.slice(0, 5).map((item) => (
-                <li className="list-group-item" key={item.id}>
+                <li className="list-group-item" key={item.event_id}>
                   <a href={`/news/${item.id}`}>
-                    <img src={item.image} alt={item.title} className="img-thumbnail" />
-                    <span>{item.title}</span>
+                  <img src={item.photo_url} className="card-img" alt={item.event_name} />
+                    <span>{item.event_name}</span>
                   </a>
                 </li>
               ))}
@@ -103,7 +75,7 @@ export const NewsContent = () => {
                   onClick={() => handleCategoryChange(category)}
                   style={{ cursor: 'pointer' }}
                 >
-                  {category}
+                  {category.toUpperCase()}
                 </li>
               ))}
             </ul>

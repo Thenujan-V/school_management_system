@@ -2,6 +2,7 @@ package com.project.school.Entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.w3c.dom.Text;
 
 import java.sql.Time;
 import java.time.LocalDate;
@@ -20,5 +21,7 @@ public class EventsEntity {
     private LocalDate event_date;
     private String category;
     private byte[] photo;
+    private String photo_path;
+
 
 }

@@ -14,7 +14,7 @@ export const signinStudents = async(formData) => {
 
 export const getEvents = async() => {
     try{
-        const response = await axios.post(`${BASE_URL_API}/student/getevents`)
+        const response = await axios.get(`${BASE_URL_API}/student/getevents`)
         return response
     }
     catch(error){

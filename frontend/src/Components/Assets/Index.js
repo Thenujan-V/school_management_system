@@ -8,7 +8,9 @@ import founder from './founder.jpeg'
 import bari from './Bari_Sir.jpeg'
 import rules from './rules.png'
 import logo from './lohoSchool.png'
+import principal from './Nasrullah_pp.jpeg'
+import deputyPrincipal from './mubarak_ali.jpeg'
 
 
 
-export {student, child, school, principle, history, oldSchool, founder, bari, rules, logo}
+export {student, child, school, principle, history, oldSchool, founder, bari, rules, logo, principal, deputyPrincipal}

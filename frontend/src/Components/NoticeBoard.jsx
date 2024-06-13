@@ -16,13 +16,37 @@ const NoticeBoard = () => {
             <div className="col-lg-4 edu_links">
                 <h1>Educational links</h1>
                 <div className="links">
-                        <Button className='btn' variant='text' startIcon={<LanguageIcon />} >e-Thaksalawa</Button>
-                        <Button className='btn' variant='text' startIcon={<BookIcon />} >text book download</Button>
-                        <Button className='btn' variant='text' startIcon={<Guide />} >teachers guide</Button>
-                        <Button className='btn' variant='text' startIcon={<Download />} >syllabus download </Button>
-                        <Button className='btn' variant='text' startIcon={<LanguageIcon />} >ministry of education</Button>
-                        <Button className='btn' variant='text' startIcon={<LanguageIcon />} >Examination</Button>            
-                </div>
+            <Button className='btn' variant='text' startIcon={<LanguageIcon />}>
+                <a href='https://www.e-thaksalawa.moe.gov.lk/Si/index.php' target='_blank' rel='noopener noreferrer' style={{ textDecoration: 'none', color: 'inherit' }}>
+                    e-Thaksalawa
+                </a>
+            </Button>
+            <Button className='btn' variant='text' startIcon={<BookIcon />}>
+                <a href='http://www.edupub.gov.lk/BooksDownload.php' target='_blank' rel='noopener noreferrer' style={{ textDecoration: 'none', color: 'inherit' }}>
+                    Text Book Download
+                </a>
+            </Button>
+            <Button className='btn' variant='text' startIcon={<Guide />}>
+                <a href='https://nie.lk/selesyll' target='_blank' rel='noopener noreferrer' style={{ textDecoration: 'none', color: 'inherit' }}>
+                    Teachers Guide
+                </a>
+            </Button>
+            <Button className='btn' variant='text' startIcon={<Download />}>
+                <a href='http://moe.gov.lk/' target='_blank' rel='noopener noreferrer' style={{ textDecoration: 'none', color: 'inherit' }}>
+                    Syllabus Download
+                </a>
+            </Button>
+            <Button className='btn' variant='text' startIcon={<LanguageIcon />}>
+                <a href='http://doenets.lk/' target='_blank' rel='noopener noreferrer' style={{ textDecoration: 'none', color: 'inherit' }}>
+                    Ministry of Education
+                </a>
+            </Button>
+            <Button className='btn' variant='text' startIcon={<LanguageIcon />}>
+                <a href='https://dmb.moe.gov.lk/' target='_blank' rel='noopener noreferrer' style={{ textDecoration: 'none', color: 'inherit' }}>
+                    Examination
+                </a>
+            </Button>
+        </div>
             </div>
             <div className="col-lg-8 notice_board">
                 <h1>Notice board</h1>

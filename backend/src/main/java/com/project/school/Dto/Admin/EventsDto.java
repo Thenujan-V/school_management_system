@@ -18,4 +18,6 @@ public class EventsDto {
     private String category;
     private byte[] photo;
     private MultipartFile photoFile;
+    private String photo_path;
+    private String photo_url;
 }

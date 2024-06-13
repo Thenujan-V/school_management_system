@@ -46,9 +46,9 @@ const HomeIndex = () => {
         </button>
     </div>
     <div id='educates'>
-        <div id='download'><Link id='link' to={indexNo ? '/downloads' : '/'}>Downloads</Link></div>
-        <div id='result'><Link id='link' to={indexNo ? '/results' : '/'}>Exam Result 6-11</Link></div>
-        <div id='exam'><Link id='link' to={indexNo ? '/examtimetable/:grade/:term' : '/'}>Exam Time Table</Link></div>
+        {indexNo && <div id='download'><Link id='link' to={indexNo ? '/downloads' : '/'}>Downloads</Link></div>}
+        {indexNo && <div id='result'><Link id='link' to={indexNo ? '/results' : '/'}>Exam Result 6-11</Link></div>}
+        {indexNo && <div id='exam'><Link id='link' to={indexNo ? '/examtimetable/:grade/:term' : '/'}>Exam Time Table</Link></div>}
     </div>
     </>
   )

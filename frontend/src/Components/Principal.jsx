@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from './Navbar'
 import StaffFirst from './StaffFirst'
 import StaffVerticalNav from './StaffVerticalNav'
-import { bari } from './Assets/Index'
+import { bari, principal } from './Assets/Index'
 import TopBar from './TopBar'
 
 const Principal = () => {
@@ -16,7 +16,7 @@ const Principal = () => {
             <div className="principals">
                 <div className="row">
                     <div className="image col-lg-4">
-                        <img src={bari} alt="principal photo" height='300px'/>
+                        <img src={principal} alt="principal photo" height='250px'/>
                     </div>
                     <div className="name col-lg-8">
                         <p className='msg'>PRINCIPAL MESSAGE</p>

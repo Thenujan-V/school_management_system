@@ -27,5 +27,12 @@ public class StudentsEntity {
     @Column(name = "updated_date", nullable = true)
     private String updated_date;
     private String password;
+    private Boolean active;
+    @PrePersist
+    protected void onCreate() {
+        if (active == null) {
+            active = true;
+        }
+    }
 
 }

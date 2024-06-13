@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from './Navbar'
 import StaffFirst from './StaffFirst'
 import StaffVerticalNav from './StaffVerticalNav'
-import { bari } from './Assets/Index'
+import { bari, deputyPrincipal } from './Assets/Index'
 import TopBar from './TopBar'
 
 
@@ -17,7 +17,7 @@ const DeputyPrincipal = () => {
             <div className="principals">
                 <div className="row">
                     <div className="image col-lg-4">
-                        <img src={bari} alt="principal photo" height='300px'/>
+                        <img src={deputyPrincipal} alt="principal photo" height='250px'/>
                     </div>
                     <div className="name col-lg-8">
                         <p className='msg'>DEPUTY PRINCIPAL MESSAGE</p>

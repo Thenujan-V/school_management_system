@@ -19,8 +19,6 @@ public class StudentSigninController {
 
     @PostMapping("/signin")
     private String signinStudent(@RequestBody StudentSigninDto studentSigninDto){
-//        System.out.println("index : "+studentSigninDto.getIndex_number());
-//        System.out.println("password : "+studentSigninDto.getPassword());
         return studentsSigninService.signin(studentSigninDto);
     }
 }

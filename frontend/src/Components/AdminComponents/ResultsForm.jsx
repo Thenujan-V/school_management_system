@@ -129,12 +129,13 @@ const ResultsForm = () => {
                                         <th>Student Index No</th>
                                         {subjects.map(subject => (
                                             <th key={subject.exam_id}>{subject.subject}
-                                            {console.log('sss :',subject)}</th>
+                                           </th>
                                         ))}
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {students.map(student => (
+                                        student.active === true && 
                                         <tr key={student.student_id}>
                                             <td>{student.index_number}</td>
                                             {subjects.map(subject => (

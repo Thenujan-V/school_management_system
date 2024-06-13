@@ -133,3 +133,13 @@ export const addEventDetails = async(data) => {
         throw error
     }
 }
+
+export const deleteStudents = async(indexNo) => {
+    try{
+        const response = await axios.post(`${BASE_URL_API}/admin/deleteStudent/${indexNo}`)
+        return response
+    }
+    catch(error){
+        throw error
+    }
+}

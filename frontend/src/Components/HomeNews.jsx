@@ -15,7 +15,7 @@ const HomeNews = () => {
             <div className="card-content">
                 <h3>2023 spetember 10th</h3>
             <h2>
-                sportmeet
+                sportsmeet
             </h2>
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum esse, libero sapiente consequuntur quaerat amet.
@@ -34,7 +34,7 @@ const HomeNews = () => {
             <h3>2023 spetember 10th</h3>
 
             <h2>
-                sportmeet
+                sportsmeet
             </h2>
 
             <p>
@@ -55,7 +55,7 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit quisquam culpa accu
             <h3>2023 spetember 10th</h3>
 
             <h2>
-                sportmeet
+                sportsmeet
             </h2>
             <p>
 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas aperiam doloremque harum fugit vero reiciendis.            </p>

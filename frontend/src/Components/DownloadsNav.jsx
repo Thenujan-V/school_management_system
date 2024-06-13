@@ -33,7 +33,11 @@ const DownloadsNav = ({grade}) => {
             subjects && subjects.length > 0 && subjects.map((subject) => (
                 <div className="links">
                     {/* <Link to={`/downloasview/${grade}/${subject}`} className='link'>{subject}</Link> */}
-                    <button onClick={() => redirectPage(grade, subject)} className='link'>{subject}</button>
+                    <button 
+                        onClick={() => redirectPage(grade, subject)} 
+                        className='link'
+                        style={{ backgroundColor:'#1D2B53', border:'none'}}
+                        >{subject}</button>
                 </div>
             ))
         }

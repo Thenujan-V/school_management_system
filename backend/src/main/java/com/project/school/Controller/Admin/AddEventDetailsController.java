@@ -22,6 +22,7 @@ public class AddEventDetailsController {
     @PostMapping("/addevent")
     private String addPrincipleDetails(@RequestParam("photo") MultipartFile photoFile, @RequestParam("event_name") String event_name, @RequestParam("description") String description, @RequestParam("event_date") LocalDate event_date, @RequestParam("category") String category) throws IOException {
         EventsDto eventsDto = new EventsDto();
+
         eventsDto.setEvent_date(event_date);
         eventsDto.setEvent_name(event_name);
         eventsDto.setPhotoFile(photoFile);
