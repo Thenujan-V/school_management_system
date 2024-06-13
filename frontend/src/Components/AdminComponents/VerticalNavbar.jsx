@@ -72,6 +72,9 @@ const VerticalNavbar = () => {
                             <Link className="nav-link" to="/syllabus-add">Syllabus & Past Papers</Link>
                         </li>}
                         {role && role === 'admin' && <li className="nav-item">
+                            <Link className="nav-link" to="/adminevent">Add Events</Link>
+                        </li>}
+                        {role && role === 'admin' && <li className="nav-item">
                             <Link className="nav-link" to="/addprincipal">Add Principal</Link>
                         </li>}
                         <li className="nav-item">
