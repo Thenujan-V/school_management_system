@@ -9,6 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api/v1/admin")
 @RequiredArgsConstructor
@@ -16,7 +17,7 @@ public class addPrincipleDetailsController {
     @Autowired
     private PrincipleService principleService;
 
-        @PostMapping("/addprinciple")
+    @PostMapping("/addprinciple")
     private String addPrincipleDetails(@RequestParam("photo") MultipartFile photoFile, @RequestParam("p_name") String p_name, @RequestParam("starting_year") Integer starting_year, @RequestParam("ending_year") Integer ending_year, @RequestParam("details") String details) throws IOException {
         PrincipleDto principleDto = new PrincipleDto();
         principleDto.setDetails(details);

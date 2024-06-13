@@ -68,11 +68,11 @@ const VerticalNavbar = () => {
                         {role && (role === 'teacher' || role === 'admin') && <li className="nav-item">
                             <Link className="nav-link" to="/showallstudentsallresults">Show Marks</Link>
                         </li>}
-                        {/* <li className="nav-item">
-                            <Link className="nav-link" to="/addsubjects">Add Subjects</Link>
-                        </li> */}
                         {role && role === 'admin' && <li className="nav-item">
                             <Link className="nav-link" to="/syllabus-add">Syllabus & Past Papers</Link>
+                        </li>}
+                        {role && role === 'admin' && <li className="nav-item">
+                            <Link className="nav-link" to="/addprincipal">Add Principal</Link>
                         </li>}
                         <li className="nav-item">
                             <Link className="nav-link" onClick={handleLogout}>Logout</Link>

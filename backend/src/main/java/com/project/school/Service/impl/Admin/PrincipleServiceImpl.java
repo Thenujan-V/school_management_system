@@ -15,7 +15,9 @@ public class PrincipleServiceImpl implements PrincipleService {
     private PrincipleRepo principleRepo;
     @Override
     public String addDetails(PrincipleDto principleDto) throws IOException {
-        if(principleDto.getP_name() == null || principleDto.getStarting_year() == null || principleDto.getEnding_year() == null || principleDto.getDetails() == null || principleDto.getPhoto() == null ){
+        System.out.println("ppp :"+principleDto);
+
+        if(principleDto.getP_name() == null || principleDto.getStarting_year() == null || principleDto.getEnding_year() == null || principleDto.getDetails() == null || principleDto.getPhotoFile() == null ){
             return "invalid data";
         }
         PrincipleEntity principleEntity = new PrincipleEntity();

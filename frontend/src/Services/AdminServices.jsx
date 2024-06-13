@@ -105,3 +105,18 @@ export const studentDetailsIndexNo = async(indexNo) => {
         throw error
     }
 }
+
+export const addPrincipalsDetails = async(data) => {
+    console.log('ddd :')
+    try{
+        const response = await axios.post(`${BASE_URL_API}/admin/addprinciple`, data, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+    })
+        return response
+    }
+    catch(error){
+        throw error
+    }
+}

@@ -30,6 +30,7 @@ import ShowAllStudentsAllResults from './Components/AdminComponents/ShowAllStude
 import AddSubjects from './Components/AdminComponents/AddSubjects'
 import UserProfile from './Components/UserProfile'
 import User from './Pages/User'
+import AddPrincipalForm from './Components/AdminComponents/AddPrincipalForm'
 
 
 
@@ -74,6 +75,7 @@ const App = () => {
         <Route path='/examtimetable/:grade/:term' element={<ExamTimeTable />}/>
         
         <Route path="/register-students" element={<RegisterStudents />} />
+        <Route path="/addprincipal" element={<AddPrincipalForm />} />
         <Route path="/viewStudent" element={<ViewStudent />} />
         <Route path="/addsubjects" element={<AddSubjects />} />
         <Route path="/showallstudentsallresults" element={<ShowAllStudentsAllResults />} />
