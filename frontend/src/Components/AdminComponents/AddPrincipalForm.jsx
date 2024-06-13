@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import VerticalNavbar from './VerticalNavbar';
 import { addPrincipalsDetails } from '../../Services/AdminServices';
+import { toast } from 'react-toastify';
 
 const AddPrincipalForm = () => {
   const [formData, setFormData] = useState({
@@ -41,6 +42,8 @@ const AddPrincipalForm = () => {
     try {
       const response = await addPrincipalsDetails(formPayload)
       console.log(response.data);
+      toast.success('successfully added principal details')
+      window.location.reload()
     } catch (error) {
       console.error('There was an error uploading the form!', error);
     }
