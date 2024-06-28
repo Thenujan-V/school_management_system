@@ -46,16 +46,21 @@ const ResultsForm = () => {
     };
 
     const handleMarksChange = (student_id, exam_id, value) => {
-        setMarks(prevMarks => {
-            const updatedMarks = [...prevMarks];
-            const markIndex = updatedMarks.findIndex(mark => mark.student_id === student_id && mark.exam_id === exam_id);
-            if (markIndex > -1) {
-                updatedMarks[markIndex].marks = value;
-            } else {
-                updatedMarks.push({ student_id, exam_id, marks: value });
-            }
-            return updatedMarks;
-        });
+        const numericValue = Number(value);
+        if (numericValue >= 0 && numericValue <= 100) {
+            setMarks(prevMarks => {
+                const updatedMarks = [...prevMarks];
+                const markIndex = updatedMarks.findIndex(mark => mark.student_id === student_id && mark.exam_id === exam_id);
+                if (markIndex > -1) {
+                    updatedMarks[markIndex].marks = numericValue;
+                } else {
+                    updatedMarks.push({ student_id, exam_id, marks: numericValue });
+                }
+                return updatedMarks;
+            });
+        } else {
+            toast.error('Marks should be between 0 and 100');
+        }
     };
 
     const handleClear = () => {

@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import axios from 'axios';
 import { allStudentsAllMarks, allStudentsDetails } from '../../Services/AdminServices';
 import { getExamTimeTable } from '../../Services/ExamServices';
 import VerticalNavbar from './VerticalNavbar';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import './ShowAllStudentsAllResults.scss';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 const ShowAllStudentsAllResults = () => {
   const [grade, setGrade] = useState('');
@@ -69,6 +69,18 @@ const ShowAllStudentsAllResults = () => {
     return acc;
   }, {});
 
+  const marksRef = useRef();
+
+  const generatePDF = async () => {
+    const canvas = await html2canvas(marksRef.current);
+    const imgData = canvas.toDataURL('image/png');
+    const pdf = new jsPDF('p', 'mm', 'a4');
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const pdfHeight = pdf.internal.pageSize.getHeight();
+    pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+    pdf.save('marksheet.pdf');
+  };
+
   return (
     <div style={{ display: 'flex' }}>
       <div style={{ flex: '1' }}>
@@ -111,30 +123,41 @@ const ShowAllStudentsAllResults = () => {
           </div>
           <button type="submit" className="btn btn-primary">Fetch Results</button>
         </form>
-        <h2>Results</h2>
-        <table className="table table-bordered">
-          <thead>
-            <tr>
-              <th>Index No</th>
-              {Object.values(subjects).map((subject, index) => (
-                <th key={index}>{subject.subjectName}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {Object.keys(filteredStudents).map((studentId) => (
-              students[studentId].active === true &&
-              <tr key={studentId}>
-                <td>{students[studentId].index_number}</td>
-                {Object.keys(subjects).map((examId) => (
-                  <td key={examId}>
-                    {organizedResults[studentId]?.[examId] || 'N/A'}
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <h2 className='text-center'>Results</h2>
+        {subjects && Object.values(subjects).length > 0 &&
+          <div>
+            <button className='btn btn-warning m-2' onClick={generatePDF}>Download PDF</button>
+            <button className='btn btn-primary m-2' onClick={() => window.print()}>Print</button>
+            <div ref={marksRef} style={{ padding: '10px', backgroundColor: 'white' , width:'300mm', minHeight:'200mm'}}>
+              <h3>Grade : {grade}</h3>
+              <h3>Term : {term === '1' ? '1st term': term === '2' ? '2nd term': term === '3' ? '3rd term':''}</h3>
+              <table className="table table-bordered mt-5">
+                <thead>
+                  <tr>
+                    <th>Index No</th>
+                    {Object.values(subjects).map((subject, index) => (
+                      <th key={index}>{subject.subjectName}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {Object.keys(filteredStudents).map((studentId) => (
+                    students[studentId].active === true &&
+                    <tr key={studentId}>
+                      <td>{students[studentId].index_number}</td>
+                      {Object.keys(subjects).map((examId) => (
+                        <td key={examId}>
+                          {organizedResults[studentId]?.[examId] || 'N/A'}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>  
+              </table>
+            </div>
+            
+          </div>
+        }
       </div>
     </div>
   );
