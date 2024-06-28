@@ -32,11 +32,12 @@ public class StudentsSigninServiceImpl implements StudentsSigninService {
             String role = studentsEntity.getRole();
 
             String enteredPassword = studentSigninDto.getPassword();
-            storedPassword.equals(enteredPassword);
+            if(storedPassword.equals(enteredPassword)){
+                String token = jwtTokenUtil.generateToken(studentIndexNo,role);
+                return token;
+            }
+                return null;
 
-            String token = jwtTokenUtil.generateToken(studentIndexNo,role);
-
-            return token;
             }
         else{
             String userName = studentSigninDto.getIndex_number();

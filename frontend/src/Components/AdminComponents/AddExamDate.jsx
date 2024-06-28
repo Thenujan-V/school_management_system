@@ -63,7 +63,7 @@ const AddExamDate = () => {
         };
         fetchExamDetails(selectedGrade, selectedTerm);
     }, [selectedGrade, selectedTerm]);
-
+console.log('exam details :', examDateDetails)
     useEffect(() => {
         // Initialize exam details when subjects change
         setExamDetails(subjects.map(subject => ({
@@ -116,12 +116,30 @@ const AddExamDate = () => {
         );
         setExamDetails(updatedExamDetails);
     };
+
     const handleDelete = async (subjectId, examId) => {
         try {
             await deleteExamSubject(examId, subjectId);
             setExamDetails(examDetails.filter(detail => detail.subjectId !== subjectId));
             toast.success('successfully delete exam date')
-            window.location.reload()
+
+            const response = await getExamTimeTable(selectedGrade, selectedTerm);
+                    const parsedDetails = response.data.map(detail => {
+                        const [subjectId, grade, term, subjectName, examId, dateTime, duration, hall] = detail.split(',');
+                        const [examDate, examTime] = dateTime.split(' ');
+                        return {
+                            grade,
+                            term,
+                            subjectName,
+                            examId,
+                            subjectId,
+                            examDate,
+                            examTime,
+                            duration,
+                            hall
+                        };
+                    });
+                    setExamDateDetails(parsedDetails);
         } catch (error) {
             console.log('error deleting exam detail:', error);
         }
@@ -132,20 +150,25 @@ const AddExamDate = () => {
 
         for (const detail of examDetails) {
             if (!detail.examDate || !detail.examTime || !detail.hall) {
-                setError('All fields are ');
+                setError('All fields are required');
                 return;
             } else {
+                console.log('response:')
+
                 try {
                     const examDatas = {
                         'subject_id': detail.subjectId,
                         'exam_date': detail.examDate,
                         'exam_hall': detail.hall,
                         'exam_time': detail.examTime
-                    };
-                    const response = await addExamTimeTable(examDatas);
-                    console.log('response:', response.data);
+                    }
+                    const response = await addExamTimeTable(examDatas)
+                    console.log('response:', response.data)
+                    if(response.data === 'error'){
+                        toast.error('failed to added exam date')
+                    }
                     toast.success('successfully added exam date')
-            window.location.reload()
+                    window.location.reload()
 
 
                 } catch (error) {
@@ -239,7 +262,7 @@ const AddExamDate = () => {
                             ))}
                         </div>
                     )}
-                    {subjects && subjects.length > 0 && (
+                    {examDateDetails.length === 0 && subjects && subjects.length > 0 && (
                         <div className="new-exam-details">
                             <h3>Add New Exam Details</h3>
                             {subjects.map(subject => (

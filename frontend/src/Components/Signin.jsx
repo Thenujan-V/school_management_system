@@ -54,14 +54,12 @@ const Signin = () => {
                 const response = await signinStudents(formData)
                 setSignin(response.data)
                 localStorage.setItem('token',response.data)
-
-                if(response.data === 'signin field'){
+                if(response.data === 'signin field' || response.data === ''){
                     toast.error('your login failed')
                 }
                 else{
                     toast.success('your login success')
                     window.location.reload()
-                    // window.scrollTo(0, 0); 
                 }
                 
             }
