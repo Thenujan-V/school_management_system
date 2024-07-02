@@ -28,7 +28,7 @@ const DownloasView = () => {
             />
             {
                 subject ? 
-                <SubjectContent 
+                <SubjectContent
                 grade = {grade}
                 subject = {subject}
             />:<p>SELECT SUBJECT</p>

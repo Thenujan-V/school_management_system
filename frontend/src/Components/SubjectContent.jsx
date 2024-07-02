@@ -1,37 +1,43 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const SubjectContent = ({ grade, subject }) => {
-    // Sample data to demonstrate the structure
-    const contentData = {
-        science: {
-            part1: ['Question 1', 'Question 2', 'Question 3'],
-            part2: ['Question 4', 'Question 5', 'Question 6']
-        },
-        math: {
-            part1: ['Question 1', 'Question 2'],
-            part2: ['Question 3', 'Question 4']
-        }
-    }
+    const [headings, setHeadings] = useState([])
+    const navigate = useNavigate()
 
-    const subjectContent = contentData[subject.toLowerCase()]
+    useEffect(() => {
+        // Fetch PDF headings for the selected subject and grade
+        // For example purposes, using static data
+        const fetchHeadings = () => {
+            const data = {
+                science: ['Part 1: Basics', 'Part 2: Advanced Topics'],
+                math: ['Part 1: Algebra', 'Part 2: Geometry']
+            }
+            setHeadings(data[subject.toLowerCase()] || [])
+        }
+
+        fetchHeadings()
+    }, [subject])
+
+    const handleHeadingClick = (heading) => {
+        // Redirect to the PDFContent component with the selected heading
+        navigate(`/content/${subject}/${encodeURIComponent(heading)}`)
+    }
 
     return (
         <div>
             <h2>{subject} Content for Grade {grade}</h2>
-            {subjectContent ? (
-                Object.keys(subjectContent).map(part => (
-                    <div key={part}>
-                        <h3>{part}</h3>
-                        <ul>
-                            {subjectContent[part].map((item, index) => (
-                                <li key={index}>{item}</li>
-                            ))}
-                        </ul>
-                    </div>
-                ))
-            ) : (
-                <p>No content available for this subject.</p>
-            )}
+            <div>
+                {headings.length ? (
+                    headings.map((heading, index) => (
+                        <div key={index} onClick={() => handleHeadingClick(heading)}>
+                            <h3>{heading}</h3>
+                        </div>
+                    ))
+                ) : (
+                    <p>No content available for this subject.</p>
+                )}
+            </div>
         </div>
     )
 }

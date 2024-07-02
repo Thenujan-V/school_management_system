@@ -32,6 +32,7 @@ import UserProfile from './Components/UserProfile'
 import User from './Pages/User'
 import AddPrincipalForm from './Components/AdminComponents/AddPrincipalForm'
 import AdminEventForm from './Components/AdminComponents/AdminEventForm'
+import ViewNotes from './Components/ViewNotes'
 
 
 
@@ -74,6 +75,7 @@ const App = () => {
         {/* <Route path='/downloasview/:grade' element={<DownloadsNav />}/> */}
         <Route path='/downloasview/:grade/:subject' element={<DownloasView />}/>
         <Route path='/examtimetable/:grade/:term' element={<ExamTimeTable />}/>
+        <Route path='/content/:subject/:heading' element={<ViewNotes />}/>
         
         <Route path="/register-students" element={<RegisterStudents />} />
         <Route path="/addprincipal" element={<AddPrincipalForm />} />
