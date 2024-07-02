@@ -5,6 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import ViewNotes from '../Components/ViewNotes'
 import { faDisplay } from '@fortawesome/free-solid-svg-icons'
 import TopBar from '../Components/TopBar'
+import SubjectContent from '../Components/SubjectContent'
 
 const DownloasView = () => {
     const params = useParams()
@@ -26,8 +27,8 @@ const DownloasView = () => {
                 // subject = {subject}
             />
             {
-                subject !== 'sub' ? 
-                <ViewNotes 
+                subject ? 
+                <SubjectContent 
                 grade = {grade}
                 subject = {subject}
             />:<p>SELECT SUBJECT</p>
