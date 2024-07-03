@@ -21,12 +21,13 @@ public class AddSyllabusController {
     private AddSyllabusService addSyllabusService;
 
     @PostMapping("/addsyllabus")
-    private String addPrincipleDetails(@RequestParam("syllabus_pdf") MultipartFile syllabus_pdf, @RequestParam("subject_name") String subject_name, @RequestParam("grade") String grade) throws IOException {
+    private String addPrincipleDetails(@RequestParam("syllabus_pdf") MultipartFile syllabus_pdf, @RequestParam("subject_name") String subject_name, @RequestParam("grade") String grade, @RequestParam("subject_contents") String subject_contents) throws IOException {
         SyllabusDto syllabusDto = new SyllabusDto();
 
         syllabusDto.setSyllabus_pdf(syllabus_pdf);
         syllabusDto.setGrade(grade);
         syllabusDto.setSubject_name(subject_name);
+        syllabusDto.setSubject_contents(subject_contents);
 
         return addSyllabusService.addSyllabus(syllabusDto);
     }

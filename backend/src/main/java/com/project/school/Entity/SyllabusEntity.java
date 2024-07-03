@@ -11,6 +11,7 @@ public class SyllabusEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long syllabus_id;
     private String subject_name;
+    private String subject_contents;
     private String grade;
     private byte[] syllabus_pdf;
 }

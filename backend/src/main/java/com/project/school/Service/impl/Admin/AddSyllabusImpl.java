@@ -15,7 +15,7 @@ public class AddSyllabusImpl implements AddSyllabusService {
     private SyllabusRepo syllabusRepo;
     @Override
     public String addSyllabus(SyllabusDto syllabusDto) throws IOException {
-        if(syllabusDto.getSyllabus_pdf() == null || syllabusDto.getSubject_name() == null || syllabusDto.getGrade() == null){
+        if(syllabusDto.getSyllabus_pdf() == null || syllabusDto.getSubject_name() == null || syllabusDto.getGrade() == null || syllabusDto.getSubject_contents() == null){
             return "invalid data";
         }
         SyllabusEntity syllabusEntity = new SyllabusEntity();
@@ -23,6 +23,7 @@ public class AddSyllabusImpl implements AddSyllabusService {
         syllabusEntity.setSyllabus_pdf(syllabusDto.getSyllabus_pdf().getBytes());
         syllabusEntity.setGrade(syllabusDto.getGrade());
         syllabusEntity.setSubject_name(syllabusDto.getSubject_name());
+        syllabusEntity.setSubject_contents(syllabusDto.getSubject_contents());
 
         try{
             syllabusRepo.save(syllabusEntity);

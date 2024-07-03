@@ -17,10 +17,10 @@ import java.util.List;
 public class ViewSyllabusController {
     @Autowired
     private ViewSyllabusService viewSyllabusService;
-    @GetMapping("/viewsyllabus/{grade}/{subject}")
-    public ResponseEntity<byte[]> viewSyllabus(@PathVariable("grade") String grade, @PathVariable("subject") String subject) {
+    @GetMapping("/viewsyllabus/{grade}/{subject}/{subject_content}")
+    public ResponseEntity<byte[]> viewSyllabus(@PathVariable("grade") String grade, @PathVariable("subject") String subject, @PathVariable("subject_content") String subject_content) {
         try {
-            byte[] pdfContent = viewSyllabusService.viewSyllabusPDF(grade, subject);
+            byte[] pdfContent = viewSyllabusService.viewSyllabusPDF(grade, subject, subject_content);
 
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_PDF);
@@ -34,4 +34,10 @@ public class ViewSyllabusController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
     }
+
+    @GetMapping("/viewsyllabuscontents/{grade}/{subject}")
+    public List<String> viewSyllabusContents(@PathVariable("grade") String grade, @PathVariable("subject") String subject){
+        return viewSyllabusService.viewContents(grade, subject);
+    }
 }
+
