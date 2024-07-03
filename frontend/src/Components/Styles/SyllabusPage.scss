@@ -70,3 +70,35 @@ body {
     }
   }
 }
+.headings{
+  width: 100%;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  h1{
+    font-weight: bolder;
+    margin: 20px;
+    color: var(--blue);
+  }
+  .heading{
+    width: 50%;
+    h3{
+      border: 2px solid var(--yellow);
+      border-radius: 6px;
+      padding: 10px 20px;
+      margin: 20px 40px;
+      font-style: italic;
+      background-color: var(--blue);
+      color: var(--yellow);
+      text-align: center;
+    }
+    h3:hover{
+      background-color: var(--yellow);
+      color: var(--blue);
+      border: 2px solid var(--blue);
+
+    }
+  }
+  
+
+}

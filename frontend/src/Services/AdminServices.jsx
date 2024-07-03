@@ -12,7 +12,7 @@ export const addExamTimeTable = async(datas) => {
     }
 } 
 
-export const addSyllabus = async(data) => {
+export const  addSyllabus = async(data) => {
     try{
         const response = await axios.post(`${BASE_URL_API}/admin/addsyllabus`, data)
         return response

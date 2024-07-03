@@ -50,7 +50,7 @@ console.log('pfdurl :', pdfUrl)
         <div>
             {pdfUrl ? (
                 <>
-                    <iframe src={pdfUrl} width="1488px" height="784px" />
+                    <iframe src={pdfUrl} width="1536px" height="770px" />
                 </>
             ) : (
                 <p>Loading PDF...</p>

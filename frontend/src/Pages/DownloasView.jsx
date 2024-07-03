@@ -17,6 +17,7 @@ const DownloasView = () => {
             setSubject(params.subject)
         }
     }, [params])
+    console.log('sub :', subject)
   return (
     <div>
         <TopBar />
@@ -27,7 +28,7 @@ const DownloasView = () => {
                 // subject = {subject}
             />
             {
-                subject ? 
+                subject !== 'sub' ? 
                 <SubjectContent
                 grade = {grade}
                 subject = {subject}

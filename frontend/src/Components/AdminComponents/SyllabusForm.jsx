@@ -10,6 +10,7 @@ const SyllabusForm = () => {
     const [formData, setFormData] = useState({
         subjectName: '',
         grade: '',
+        content:'',
         syllabus: null
     });
 
@@ -41,6 +42,7 @@ const SyllabusForm = () => {
         setFormData({
             subjectName: '',
             grade: '',
+            content:'',
             syllabus: null
         });
     };
@@ -51,10 +53,10 @@ const SyllabusForm = () => {
         data.append('subject_name', formData.subjectName);
         data.append('grade', formData.grade);
         data.append('syllabus_pdf', formData.syllabus);
+        data.append('subject_contents', formData.content);
 
         try {
             const response = await addSyllabus(data);
-            console.log('successfully added');
             toast.success('successfully added');
             handleClear();
         } catch (error) {
@@ -106,7 +108,18 @@ const SyllabusForm = () => {
                         </select>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="syllabus">Syllabus PDF</label>
+                        <label htmlFor="content">Content</label>
+                            <input
+                                type="text"
+                                className="form-control-file"
+                                id="content"
+                                name="content"
+                                onChange={handleChange}
+                                required
+                            />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="syllabus">Content PDF</label>
                         <input
                             type="file"
                             className="form-control-file"
