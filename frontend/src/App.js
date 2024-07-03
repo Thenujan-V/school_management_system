@@ -75,7 +75,7 @@ const App = () => {
         {/* <Route path='/downloasview/:grade' element={<DownloadsNav />}/> */}
         <Route path='/downloasview/:grade/:subject' element={<DownloasView />}/>
         <Route path='/examtimetable/:grade/:term' element={<ExamTimeTable />}/>
-        <Route path='/content/:subject/:heading' element={<ViewNotes />}/>
+        <Route path='/viewnotes/:grade/:subject/:heading' element={<ViewNotes />}/>
         
         <Route path="/register-students" element={<RegisterStudents />} />
         <Route path="/addprincipal" element={<AddPrincipalForm />} />

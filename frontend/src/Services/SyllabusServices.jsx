@@ -12,10 +12,21 @@ export const getSubjectNames = async(grade) => {
         throw error
     }
 }
-export const getSubjectNotes = async(grade, subject) => {
-    console.log('grad :',subject)
+
+export const getContentsNames = async(grade, subject) => {
+
     try{
-        const response = await axios.get(`${BASE_URL_API}/student/viewsyllabus/${grade}/${subject}`, {
+        const response = await axios.get(`${BASE_URL_API}/student/viewsyllabuscontents/${grade}/${subject}`)
+        return response
+    }
+    catch(error){
+        throw error
+    }
+}
+
+export const getSubjectNotes = async(grade, subject, subject_content) => {
+    try{
+        const response = await axios.get(`${BASE_URL_API}/student/viewsyllabus/${grade}/${subject}/${subject_content}`, {
             headers: {
                 'Accept': 'application/pdf',
             },

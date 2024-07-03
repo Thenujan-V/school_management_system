@@ -1,27 +1,30 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { getContentsNames } from '../Services/SyllabusServices'
+import ViewNotes from './ViewNotes'
 
 const SubjectContent = ({ grade, subject }) => {
     const [headings, setHeadings] = useState([])
+    const [pdfShow, setPdfShow] = useState(null)
     const navigate = useNavigate()
 
     useEffect(() => {
-        // Fetch PDF headings for the selected subject and grade
-        // For example purposes, using static data
-        const fetchHeadings = () => {
-            const data = {
-                science: ['Part 1: Basics', 'Part 2: Advanced Topics'],
-                math: ['Part 1: Algebra', 'Part 2: Geometry']
+        const fetchHeadings = async () => {
+            try{
+                const response = await getContentsNames(grade, subject)
+                console.log('res :', response.data)
+                setHeadings(response.data)
             }
-            setHeadings(data[subject.toLowerCase()] || [])
+            catch(error){
+                console.log('error occure :', error)
+            }
         }
 
         fetchHeadings()
     }, [subject])
 
     const handleHeadingClick = (heading) => {
-        // Redirect to the PDFContent component with the selected heading
-        navigate(`/content/${subject}/${encodeURIComponent(heading)}`)
+        navigate(`/viewnotes/${grade}/${subject}/${heading}`)
     }
 
     return (
@@ -38,6 +41,13 @@ const SubjectContent = ({ grade, subject }) => {
                     <p>No content available for this subject.</p>
                 )}
             </div>
+            {/* {pdfShow &&
+                <ViewNotes 
+                    grade = {grade}
+                    subject = {subject}
+                    heading = {pdfShow}
+                />
+            } */}
         </div>
     )
 }

@@ -1,18 +1,35 @@
 import React, { useEffect, useState } from 'react';
 import { getSubjectNotes } from '../Services/SyllabusServices';
+import { useParams } from 'react-router-dom';
 
-const ViewNotes = ({ grade, subject }) => {
-console.log('ooooo :', subject)
-
+const ViewNotes = () => {
+    const params = useParams()
+    console.log('pa :',params.grade)
+    const [grade, setGrade] = useState('')
+    const [subject, setSubject] = useState('')
+    const [heading, setHeading] = useState('')
     const [pdfUrl, setPdfUrl] = useState('');
 
-    useEffect(() => {
-        const fetchNotes = async (grade, subject) => {
-            console.log('subject :', subject)
-            try {
-                const response = await getSubjectNotes(grade, subject);
+    useState(() => {
+        const setFields = (params) => {
+            try{
+                setGrade(params.grade)
+                setSubject(params.subject)
+                setHeading(params.heading)
+            }
+            catch(error){
+                console.log('error occured :', error)
+            }
+        }
+        setFields(params)
+    },[params])
 
-                console.log('API full response:', response);
+    useEffect(() => {
+        const fetchNotes = async (grade, subject, heading) => {
+            console.log('hed ',heading, grade, subject )
+            try {
+                const response = await getSubjectNotes(grade, subject, heading)
+                console.log('API full response:', response)
 
                 if (response.headers['content-type'] === 'application/pdf') {
                     const blob = new Blob([response.data], { type: 'application/pdf' });
@@ -26,14 +43,14 @@ console.log('ooooo :', subject)
             }
         };
 
-        fetchNotes(grade, subject);
-    }, [grade, subject]);
+        fetchNotes(grade, subject, heading);
+    }, [heading]);
 console.log('pfdurl :', pdfUrl)
     return (
         <div>
             {pdfUrl ? (
                 <>
-                    <iframe src={pdfUrl} width="1220px" height="690px" />
+                    <iframe src={pdfUrl} width="1488px" height="784px" />
                 </>
             ) : (
                 <p>Loading PDF...</p>
